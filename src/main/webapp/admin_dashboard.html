@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+<!-- ASSETS -->
+<!-- ASSETS -->
+<link rel="stylesheet" href="css/admin_dashboard.css">
+<link rel="stylesheet" href="./assets/all.css">
+<link rel="stylesheet" href="./assets/bootstrap.css">
+
+</head>
+<body>
+	<div class="topnav p-1">
+		<div class="d-flex">
+			<div class=logo>
+			
+			</div>
+			
+			<h5 class="text-white mt-2 ml-4">
+				SPARE PARTS
+			</h5>
+			
+			<p class="text-white mt-2 ml-4">
+				<i class="fa fa-paw"></i>
+				DASHBOARD / OVERVIEW
+			</p>
+			
+			<div class="profile">
+			
+			</div>
+			<H6 class="text-white mt-2 ml-3">
+				Full Name
+			</H5>
+		</div>
+	</div>
+	
+	 <!-- side navigation bar -->
+	 <!-- side navigation bar -->
+    <div class="side_nav d-block">
+        <a href="admin_dashboard.html" class="color"><i class="fa fa-paw"></i> Dashboard</a>
+        <!-- products dropdown -->
+        <!-- products dropdown -->
+        <div class="dropdown">
+        	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i> Products</a>
+        	<div class="dropdown-contents pl-4">
+        		<a href="add_products.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add Products</a>
+        		<a href="product_details.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Products details</a>
+        	</div>
+        </div>
+       
+       <!-- products categories -->
+       <!-- products categories -->
+       <div class="dropdown">
+       		 <a href="" class="color dropdown-toggle"><i class="fa fa-cart-plus"></i> Categories</a>
+       		 <div class="dropdown-contents pl-4">
+       		 		 <a href="" class="color dropdown-list 	"><i class="fa fa-cart-plus"></i> Categories</a>
+       		 		  <a href="" class="color dropdown-list"><i class="fa fa-cart-plus"></i> Categories</a>
+       		 </div>
+       </div>
+        <a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i> Stores</a>
+        <div class="dropdown">
+        	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i> Sales personnels</a>
+        	<div class="dropdown-contents pl-4">
+        		<a href="" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Sales personnels</a>
+        		<a href="" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Sales personnels</a>
+        	</div>
+        </div>
+        <a href="" class="color "><i class="fa fa-fw fa-table"></i> Terms & Conditions</a>
+        <a href="" class="color "><i class="fa fa-edit"></i>  Customers</a>
+        
+        <!-- payments -->
+       <!-- payments -->
+       <div class="dropdown">
+       		 <a href="" class="color dropdown-toggle"><i class="fa fa-eye"></i> Payments</a>
+       		 <div class="dropdown-contents pl-4">
+       		 		 <a href="" class="color dropdown-list 	"><i class="fa fa-cart-plus"></i> Add payment</a>
+       		 		  <a href="" class="color dropdown-list"><i class="fa fa-cart-plus"></i> Payment Details</a>
+       		 </div>
+       </div>
+        <a href="" class="color "><i class="fa fa-fw fa-power-off"></i> Logout</a>
+    </div>
+
+    <!-- page contents -->
+    <div class="pageContent">
+        
+
+        <div class="row pr-4">
+            <!-- Products -->
+            <!-- Products -->
+            <div class="col-sm-3">
+                <div class="dash_items mt-4">
+                    <div class="products ">
+                        <div class="row ">
+                            <div class="col-sm-6 white p">
+                                <i class="fa fa-tasks fa-5x ml-3 mt-2"></i>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="white">
+                                    <h1>10</h1>
+                                    <h6>Products</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="row">
+                            <div class="col-sm-6 pl-4 pt-2">
+                                <p class="p">View Details</p>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="arrow">
+                                    <a href="">
+                                        <i class="fa fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- customers -->
+            <!-- customers -->
+            <div class="col-sm-3">
+                <div class="customers_item mt-4">
+                    <div class="customers">
+                        <div class="row ">
+                            <div class="col-sm-6 white p">
+                                <i class="fa fa-comments fa-5x ml-3 mt-2"></i>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="white">
+                                    <h1>14</h1>
+                                    <h6>Customers</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="row">
+                            <div class="col-sm-6 pl-4 pt-2">
+                                <p class="p1">View Details</p>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="arrow">
+                                    <a href="">
+                                        <i class="fa fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- products categories -->
+            <!-- products categories -->
+            <div class="col-sm-3">
+                <div class="product_cat_item mt-4">
+                    <div class="products_cat ">
+                        <div class="row ">
+                            <div class="col-sm-6 white p">
+                                <i class="fa fa-cart-plus fa-5x ml-3 mt-2"></i>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="white">
+                                    <h1>19</h1>
+                                    <h6>Products Categories</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="row">
+                            <div class="col-sm-6 pl-4 pt-2">
+                                <p class="p2">View Details</p>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="arrow">
+                                    <a href="">
+                                        <i class="fa fa-arrow-right "></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="orders_items mt-4">
+                    <div class="orders ">
+                        <div class="row ">
+                            <div class="col-sm-6 white p">
+                                <i class="fa fa-table fa-5x ml-3 mt-4"></i>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="white">
+                                    <h1>65</h1>
+                                    <h6>Orders</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="row">
+                            <div class="col-sm-6 pl-4 pt-2">
+                                <p class="p3">View Details</p>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="arrow">
+                                    <a href="">
+                                        <i class="fa fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row pr-4">
+            <!-- Products -->
+            <!-- Products -->
+            <div class="col-sm-3">
+                <div class="earnings_items mt-4">
+                    <div class="earnings ">
+                        <div class="row ">
+                            <div class="col-sm-6 green p">
+                                <i class="fa fa-hand-holding-usd fa-5x ml-3 mt-2"></i>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="green">
+                                    <h1>4</h1>
+                                    <h6>Earnings</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="row">
+                            <div class="col-sm-6 pl-4 pt-2">
+                                <p class="p">View Details</p>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="arrow">
+                                    <a href="">
+                                        <i class="fa fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- customers -->
+            <!-- customers -->
+            <div class="col-sm-3">
+                <div class="pending_orders_item mt-4">
+                    <div class="pending_orders">
+                        <div class="row ">
+                            <div class="col-sm-6 brown p">
+                                <i class="fa fa-spinner fa-5x ml-3 mt-2"></i>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="brown">
+                                    <h1>17</h1>
+                                    <h6>Pending Orders</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="row">
+                            <div class="col-sm-6 pl-4 pt-2">
+                                <p class="p1">View Details</p>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="arrow">
+                                    <a href="">
+                                        <i class="fa fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- products categories -->
+            <!-- products categories -->
+            <div class="col-sm-3">
+                <div class="completed_orders_item mt-4">
+                    <div class="completed_orders ">
+                        <div class="row ">
+                            <div class="col-sm-5 blue p">
+                                <i class="fa fa-check fa-5x ml-3 mt-2"></i>
+                            </div>
+
+                            <div class="col-sm-7">
+                                <div class="blue">
+                                    <h1>4</h1>
+                                    <h6>Completed Orders</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="row">
+                            <div class="col-sm-6 pl-4 pt-2">
+                                <p class="p2">View Details</p>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="arrow">
+                                    <a href="">
+                                        <i class="fa fa-arrow-right "></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="total_coupons_items mt-4">
+                    <div class=" total_coupons">
+                        <div class="row ">
+                            <div class="col-sm-6 red p">
+                                <i class="fa fa-percent fa-4x ml-3 mt-2"></i>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="red">
+                                    <h1>98</h1>
+                                    <h6>Total Coupons</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="row">
+                            <div class="col-sm-6 pl-4 pt-2">
+                                <p class="p3">View Details</p>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="arrow">
+                                    <a href="">
+                                        <i class="fa fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+             <div class="div">
+        </div>
+        </div>
+        
+       
+        
+      
+   		
+   		
+   
+    
+
+    <!-- SCRIPTS -->
+	<!-- SCRIPTS -->
+	<script src="./assets/jquery-3.6.0.min.js"></script>
+	<script src="./assets/bootstrap.js"></script>
+	<script src="./assets/all.js"></script>
+	<script type="chart.min.js"></script>
+</body>
+</html>
