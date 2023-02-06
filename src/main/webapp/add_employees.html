@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-	<meta charset="ISO-8859-1">
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 
 
 	<!-- ASSETS -->
 	<!-- ASSETS -->
-	<link rel="stylesheet" href="css/add_product.css">
+	<link rel="stylesheet" href="css/customers.css">
 	<link rel="stylesheet" href="css/admin_dashboard.css">
 	<link rel="stylesheet" href="./assets/all.css">
 	<link rel="stylesheet" href="./assets/bootstrap.css">
@@ -29,7 +31,7 @@
 
 			<p class="text-white mt-2 ml-4">
 				<i class="fa fa-paw"></i>
-				PRODUCTS || ADD PRODUCTS
+				DASHBOARD / OVERVIEW
 			</p>
 
 			<div class="profile">
@@ -41,7 +43,6 @@
 		</div>
 	</div>
 
-
 	<!-- side navigation bar -->
 	<!-- side navigation bar -->
 	<div class="side_nav d-block">
@@ -51,8 +52,10 @@
 		<div class="dropdown">
 			<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i> Products</a>
 			<div class="dropdown-contents pl-4">
-				<a href="add_products.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add Products</a>
-				<a href="products_details.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Products details</a>
+				<a href="add_products.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add
+					Products</a>
+				<a href="product_details.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i>
+					Products details</a>
 			</div>
 		</div>
 
@@ -73,8 +76,17 @@
 				<a href="" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Sales personnels</a>
 			</div>
 		</div>
-		<a href="" class="color "><i class="fa fa-fw fa-table"></i> Terms & Conditions</a>
-		<a href="" class="color "><i class="fa fa-edit"></i> Customers</a>
+
+		<!-- Customers -->
+		<!-- Customers -->
+		<div class="dropdown">
+			<a href="" class="color dropdown-toggle"><i class="fa fa-edit"></i> Customers</a>
+			<div class="dropdown-contents pl-4">
+				<a href="" class="color dropdown-list 	"><i class="fa fa-cart-plus"></i> Add Customer</a>
+				<a href="" class="color dropdown-list"><i class="fa fa-cart-plus"></i> Customers Details</a>
+			</div>
+		</div>
+
 
 		<!-- payments -->
 		<!-- payments -->
@@ -88,58 +100,56 @@
 		<a href="" class="color "><i class="fa fa-fw fa-power-off"></i> Logout</a>
 	</div>
 
-
 	<div class="pageContent">
 
 		<form>
 			<div class="container p-4">
 
 				<div>
-					<h4 class="text-white ml-4">Add New Product Here</h4>
-				</div><hr>
+					<h4 class="text-white ml-4">Add New Employee</h4>
+				</div>
+				<hr>
 
 				<div class="row p-4">
 					<div class="col-sm-6">
-						<label class="text-white">Product Name</label><br>
-						<input class="product_input" type="text"><br><br>
 
-						<label class="text-white">Select Manufacturer</label><br>
-						<select class="product_input">
-							<option>Toyata </option>
-							<option>BMW</option>
-							<option>Camry </option>
-						</select><br><br>
+						<label class="text-white">First Name</label><br>
+						<input class="customers_input" type="text"><br><br>
 
-						<label class="text-white">Product Sale Price</label><br>
-						<input type="number" class="product_input" ><br><br>
-
+						<label class="text-white">Last Name</label><br>
+						<input class="customers_input" type="text"><br><br>
 						
+						<label class="text-white">Gender</label><br>
+						<select class="customers_input">
+							<option>Male</option>
+							<option>Female</option>
+						</select><br><br>
 					</div>
 
 
 
 					<div class="col-sm-6">
-						<label class="text-white">Select Category</label><br>
-						<select class="product_input">
-							<option>Toyata </option>
-							<option>BMW </option>
-							<option>Camry </option>
-						</select><br><br>
 
-						<label class="text-white">Price</label><br>
-						<input class="product_input" type="number"><br><br>
+						<label class="text-white">Phone</label><br>
+						<input class="customers_input" type="number"><br><br>
 
-						<label class="text-white">Quantity</label><br>
-						<input class="product_input" type="number"><br><br>
+						<label class="text-white">Email</label><br>
+						<input class="customers_input" type="email"><br><br>
+
+						<label class="text-white">Role</label><br>
+						<input class="customers_input" type="text"><br><br>
 					</div>
 
 					<div class="ml-auto mr-auto mt-4">
-						<input class="btn btn-primary submit" value="Insert Product" type="submit">
+						<input class="btn btn-primary submit" value="Add Customer" type="submit">
 					</div>
 				</div>
 			</div>
 		</form>
 	</div>
+
+
+
 
 
 
