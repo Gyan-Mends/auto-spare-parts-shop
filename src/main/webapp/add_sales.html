@@ -2,15 +2,6 @@
 <html lang="en">
 
 <head>
-	<style type="text/css">
-		thead {
-			background-color: #0095FF !important;
-		}
-		tr:nth-child(even){
-			background-color:#202020;
-		}
-		
-	</style>
 
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +11,6 @@
 
 	<!-- ASSETS -->
 	<!-- ASSETS -->
-	<script src="./assets/chart.min.js" type="text/javascript"></script>
 	<link rel="stylesheet" href="css/customers.css">
 	<link rel="stylesheet" href="css/admin_dashboard.css">
 	<link rel="stylesheet" href="./assets/all.css">
@@ -53,7 +43,7 @@
 		</div>
 	</div>
 
- 	 <!-- side navigation bar -->
+	 <!-- side navigation bar -->
 	 <!-- side navigation bar -->
     <div class="side_nav d-block">
         <a href="admin_dashboard.html" class="color"><i class="fa fa-paw"></i> Dashboard</a>
@@ -97,7 +87,7 @@
         <div class="dropdown">
         	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i>Orders</a>
         	<div class="dropdown-contents pl-4">
-        		<a href="orders_create.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add order</a>
+        	<a href="orders_create.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add order</a>
         		<a href="order_completed.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Completed orders</a>
         		<a href="orders_pending.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Pending orders</a>
         	</div>
@@ -117,94 +107,46 @@
     </div>
 
 	<div class="pageContent">
-	
-		<div class="p-4 mb-4 ml-4 ">
-			<div class="d-flex">
-				<h4 class="text-white mt-3">
-					 Product Details
-				</h4>
-				<a href="add_products.html">
-					<button class="btn btn-primary ml-4"><i class="fa fa-plus"></i></button>
-				</a>
+
+		<form>
+			<div class="container p-4">
+
+				<div>
+					<h4 class="text-white ml-4">Add Sales Here</h4>
+				</div>
+				<hr>
+
+				<div class="row p-4">
+					<div class="col-sm-6">
+
+						<label class="text-white">Customers Name</label><br>
+						<input class="customers_input" type="text"><br><br>
+
+						<label class="text-white">Spare part</label><br>
+						<input class="customers_input" type="text"><br><br>
+						
+						<label class="text-white">Quantity</label><br>
+						<input class="customers_input" type="number"><br><br>
+					</div>
+
+
+
+					<div class="col-sm-6">
+
+						<label class="text-white">Price</label><br>
+						<input class="customers_input" type="number"><br><br>
+
+						<label class="text-white">Total</label><br>
+						<input class="customers_input" type="number"><br><br>
+
+					</div>
+
+					<div class="ml-auto mr-auto mt-4">
+						<input class="btn btn-primary submit" value="Make sales" type="submit">
+					</div>
+				</div>
 			</div>
-			<hr>
-		</div>
-		
-		
-		<div class="container">
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th class="text-white ">Product Name</th>
-						<th class="text-white ">Manufacturer</th>
-						<th class="text-white ">Product Sale Price</th>
-						<th class="text-white ">Product Category</th>
-						<th class="text-white ">Price</th>
-						<th class="text-white ">Quantity</th>
-						<th class="text-white ">Total Amount</th>
-						<th class="text-white ">Action</th>
-					</tr>
-				</thead>
-				
-				<tbody>
-					<tr>
-						<td class="text-white"> Engine </td>
-						<td class="text-white">Toyota </td>
-						<td class="text-white"> gh5</td>
-						<td class="text-white"> Engine</td>
-						<td class="text-white"> ghc50</td>
-						<td class="text-white"> ghc50</td>
-						<td class="text-white"> 10</td>
-						<td class="text-center">
-							<button class="btn btn-primary ml-4"><i class="fa fa-edit"></i></button>
-							<button class="btn btn-danger ml-4"><i class="fa fa-trash "></i></button>
-						</td>
-					</tr>
-					
-					<tr>
-						<td class="text-white"> Engine </td>
-						<td class="text-white">Toyota </td>
-						<td class="text-white"> gh5</td>
-						<td class="text-white"> Engine</td>
-						<td class="text-white"> ghc50</td>
-						<td class="text-white"> ghc50</td>
-						<td class="text-white"> 10</td>
-						<td class="text-center">
-							<button class="btn btn-primary ml-4"><i class="fa fa-edit"></i></button>
-							<button class="btn btn-danger ml-4"><i class="fa fa-trash "></i></button>
-						</td>
-					</tr>
-					
-					<tr>
-						<td class="text-white"> Engine </td>
-						<td class="text-white">Toyota </td>
-						<td class="text-white"> gh5</td>
-						<td class="text-white"> Engine</td>
-						<td class="text-white"> ghc50</td>
-						<td class="text-white"> ghc50</td>
-						<td class="text-white"> 10</td>
-						<td class="text-center">
-							<button class="btn btn-primary ml-4"><i class="fa fa-edit"></i></button>
-							<button class="btn btn-danger ml-4"><i class="fa fa-trash "></i></button>
-						</td>
-					</tr>
-					
-					<tr>
-						<td class="text-white"> Engine </td>
-						<td class="text-white">Toyota </td>
-						<td class="text-white"> gh5</td>
-						<td class="text-white"> Engine</td>
-						<td class="text-white"> ghc50</td>
-						<td class="text-white"> ghc50</td>
-						<td class="text-white"> 10</td>
-						<td class="text-center">
-							<button class="btn btn-primary ml-4"><i class="fa fa-edit"></i></button>
-							<button class="btn btn-danger ml-4"><i class="fa fa-trash "></i></button>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+		</form>
 	</div>
 
 
