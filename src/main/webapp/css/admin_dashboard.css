@@ -3,22 +3,25 @@ body{
 	padding:0;
 	margin:0;
 	width:100vw;
+	overflow-x:hidden;
 }
 
 html{
 	padding:0;
 	margin:0;
-	width:100vw;
+	overflow-x:hidden;
 }
 
 .topnav{
+	padding-left:30px;
+	padding-right:20px;
 	height:60px;
 	width:100vw;
 	background-color:#232323;
 }
 
 .side_nav{
-    height: 100vh !important;
+    height: 130vh !important;
     width: 300px !important;
     background-color:  rgb(39, 39, 38) !important;
 }
@@ -33,7 +36,7 @@ html{
 .profile{
 	height:50px !important;
 	width:50px !important;
-	border-radius:10px 0 10px 0 !important;
+	border-radius:100%;
 	background-color:#0095FF !important;
 	margin-left:55vw;
 }
