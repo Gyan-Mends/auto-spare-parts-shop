@@ -1,47 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ page import="java.sql.*" %>
-
-<%
-	//retrieving data from the input field
-	//retrieving data from the input field
-    String Pname = request.getParameter("Pname");
-    String Pmanufacturer = request.getParameter("pmanufacturer");
-    String Pymodel = request.getParameter("Pymodel");
-    String Pcategory = request.getParameter("Pcategory");
-    String Pprice =request.getParameter("Pprice");
-    String Pquantity = request.getParameter("Pquantity");
-    String Ptamount = request.getParameter("Ptamount");
-
-        try {
-        	//database connection
-        	//database connection
-            Class.forName("org.postgresql.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
-            
-            //creating sql statement
-            //creating sql statement
-            Statement statement = conn.createStatement();
-            int insert_query = statement.executeUpdate("INSERT INTO products(P_Name, P_Manufacturer,P_Y_Model,P_Category,P_Price,P_Quantity,P_T_Amount) VALUES ('"+Pname+"', '"+Pmanufacturer+"', '"+Pymodel+"', '"+Pcategory+"', '"+Pprice+"', '"+Pquantity+"', '"+Ptamount+"')");
-            if(insert_query > 0) {
-               %>
-               		<script>
-						alert("Product has been added successfully");
-					</script>
-               <% 
-            } else {
-            	 %>
-            		<script>
-						alert("Product has been added successfully");
-					</script>
-            	<% 
-            }
-            conn.close();
-        } catch (Exception e) {
-            out.println("Error: " + e);
-        }
- 
-%>
 
 <!DOCTYPE html>
 <html>
@@ -201,7 +157,7 @@
 					</div>
 
 					<div class="ml-auto mr-auto mt-4">
-						<input class="btn btn-primary submit" value="Insert Product" type="submit">
+						<input class="btn btn-primary submit" value="Insert Product" type="submit" name="submit">
 					</div>
 				</div>
 			</div>
@@ -221,3 +177,55 @@
 </body>
 
 </html>
+
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page import="java.sql.*" %>
+
+<%
+	//retrieving data from the input field
+	//retrieving data from the input field
+    String Pname = request.getParameter("Pname");
+    String Pmanufacturer = request.getParameter("pmanufacturer");
+    String Pymodel = request.getParameter("Pymodel");
+    String Pcategory = request.getParameter("Pcategory");
+    String Pprice =request.getParameter("Pprice");
+    String Pquantity = request.getParameter("Pquantity");
+    String Ptamount = request.getParameter("Ptamount");
+  
+
+       if(request.getParameter("submit") != null){
+    	   try {
+           	
+       		//database connection
+           	//database connection
+               Class.forName("org.postgresql.Driver");
+               Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
+               
+               //creating sql statement
+               //creating sql statement
+               Statement statement = conn.createStatement();
+               int insert_query = statement.executeUpdate("INSERT INTO products(P_Name, P_Manufacturer,P_Y_Model,P_Category,P_Price,P_Quantity,P_T_Amount) VALUES ('"+Pname+"', '"+Pmanufacturer+"', '"+Pymodel+"', '"+Pcategory+"', '"+Pprice+"', '"+Pquantity+"', '"+Ptamount+"')");
+               if(insert_query>0) {
+                  %>
+                  		<script>
+   						alert("Product has been added successfully");
+   					</script>
+                  <% 
+               } else {
+               	 %>
+               		<script>
+   						alert("Product has been added successfully");
+   					</script>
+               	<% 
+               }
+               conn.close();
+       	
+       } catch (Exception e) {
+           out.println("Error: " + e);
+       }
+  
+       }
+ 
+%>

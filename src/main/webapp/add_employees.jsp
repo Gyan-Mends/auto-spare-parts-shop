@@ -119,13 +119,13 @@
 					<div class="col-sm-6">
 
 						<label class="text-white">First Name</label><br>
-						<input class="customers_input" type="text"><br><br>
+						<input class="customers_input" type="text" name="EFname"><br><br>
 
 						<label class="text-white">Last Name</label><br>
-						<input class="customers_input" type="text"><br><br>
+						<input class="customers_input" type="text"name="ELname" ><br><br>
 						
 						<label class="text-white">Gender</label><br>
-						<select class="customers_input">
+						<select class="customers_input" name="Egender">
 							<option>Male</option>
 							<option>Female</option>
 						</select><br><br>
@@ -136,13 +136,13 @@
 					<div class="col-sm-6">
 
 						<label class="text-white">Phone</label><br>
-						<input class="customers_input" type="number"><br><br>
+						<input class="customers_input" type="number" name="Ephone"><br><br>
 
 						<label class="text-white">Email</label><br>
-						<input class="customers_input" type="email"><br><br>
+						<input class="customers_input" type="email" name="Eemail"><br><br>
 
 						<label class="text-white">Role</label><br>
-						<input class="customers_input" type="text"><br><br>
+						<input class="customers_input" type="text" name="Erole"><br><br>
 					</div>
 
 					<div class="ml-auto mr-auto mt-4">
@@ -169,3 +169,48 @@
 </body>
 
 </html>
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page import="java.sql.*" %>
+
+<%
+	//retrieving data from the input field
+	//retrieving data from the input field
+    String Pname = request.getParameter("Pname");
+    String Pmanufacturer = request.getParameter("pmanufacturer");
+    String Pymodel = request.getParameter("Pymodel");
+    String Pcategory = request.getParameter("Pcategory");
+    String Pprice =request.getParameter("Pprice");
+    String Pquantity = request.getParameter("Pquantity");
+    String Ptamount = request.getParameter("Ptamount");
+
+        try {
+        	//database connection
+        	//database connection
+            Class.forName("org.postgresql.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
+            
+            //creating sql statement
+            //creating sql statement
+            Statement statement = conn.createStatement();
+            int insert_query = statement.executeUpdate("INSERT INTO products(P_Name, P_Manufacturer,P_Y_Model,P_Category,P_Price,P_Quantity,P_T_Amount) VALUES ('"+Pname+"', '"+Pmanufacturer+"', '"+Pymodel+"', '"+Pcategory+"', '"+Pprice+"', '"+Pquantity+"', '"+Ptamount+"')");
+            if(insert_query>0) {
+               %>
+               		<script>
+						alert("Product has been added successfully");
+					</script>
+               <% 
+            } else {
+            	 %>
+            		<script>
+						alert("Product has been added successfully");
+					</script>
+            	<% 
+            }
+            conn.close();
+        } catch (Exception e) {
+            out.println("Error: " + e);
+        }
+ 
+%>
