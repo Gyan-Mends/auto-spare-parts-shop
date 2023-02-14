@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+
+    <!DOCTYPE html>
 <html lang="en">
 <head>
 	<style type="text/css">
@@ -54,13 +57,13 @@
     <div class="side_nav d-block">
         <a href="admin_dashboard.html" class="color"><i class="fa fa-paw"></i> Dashboard</a>
         
-        <!-- products dropdown -->
-        <!-- products dropdown -->
+        <!-- products drop down -->
+        <!-- products drop down -->
         <div class="dropdown">
         	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i> Products</a>
         	<div class="dropdown-contents pl-4">
-        		<a href="add_products.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add Products</a>
-        		<a href="products_details.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Products details</a>
+        		<a href="add_products.jsp" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add Products</a>
+        		<a href="products_details.jsp" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Products details</a>
         	</div>
         </div>
        
@@ -114,7 +117,7 @@
     </div>
 
     <!-- page contents -->
-    <div class="pageContent ">
+    <div class="pageContent">
         
 
         <div class="row pr-4">
@@ -445,8 +448,8 @@
 					</tr>
 					
 					<tr>
-						<td class="text-white"> Mends  </td>
-						<td class="text-white"> Gyan</td>
+						<td class="text-white"> Emmanuel Oppong  </td>
+						<td class="text-white"> Coffie</td>
 						<td class="text-white"> 0548348485</td>
 						<td class="text-white"> 30-01-2023</td>
 						<td class="text-center">
@@ -456,8 +459,8 @@
 					</tr>
 					
 					<tr>
-						<td class="text-white"> Mends  </td>
-						<td class="text-white"> Gyan</td>
+						<td class="text-white"> Well  </td>
+						<td class="text-white"> Done</td>
 						<td class="text-white"> 0548348485</td>
 						<td class="text-white"> 30-01-2023</td>
 						<td class="text-center">
@@ -467,8 +470,8 @@
 					</tr>
 					
 					<tr>
-						<td class="text-white"> Mends  </td>
-						<td class="text-white"> Gyan</td>
+						<td class="text-white"> Fati  </td>
+						<td class="text-white"> Qwarm</td>
 						<td class="text-white"> 0548348485</td>
 						<td class="text-white"> 30-01-2023</td>
 						<td class="text-center">
@@ -478,8 +481,8 @@
 					</tr>
 					
 					<tr>
-						<td class="text-white"> Mends  </td>
-						<td class="text-white"> Gyan</td>
+						<td class="text-white"> Godfred  </td>
+						<td class="text-white"> Qwarm</td>
 						<td class="text-white"> 0548348485</td>
 						<td class="text-white"> 30-01-2023</td>
 						<td class="text-center">
@@ -502,6 +505,7 @@
 			</table>
 		</div>
         </div>
+        
         
 
        

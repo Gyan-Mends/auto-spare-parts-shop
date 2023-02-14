@@ -1,3 +1,14 @@
+<%@ page import="java.sql.*" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.time.LocalDateTime" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+<% 
+	LocalDateTime currentTime = LocalDateTime.now();
+   	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    String formattedDateTime = currentTime.format(formatter);
+    						
+    %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,9 +58,9 @@
 			<div class="profile">
 
 			</div>
-			<H6 class="text-white mt-2 ml-3">
+			<h6 class="text-white mt-2 ml-3">
 				Full Name
-				</H5>
+			</h6>
 		</div>
 	</div>
 
@@ -58,8 +69,8 @@
     <div class="side_nav d-block">
         <a href="admin_dashboard.html" class="color"><i class="fa fa-paw"></i> Dashboard</a>
         
-        <!-- products dropdown -->
-        <!-- products dropdown -->
+        <!-- products drop down -->
+        <!-- products drop down -->
         <div class="dropdown">
         	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i> Products</a>
         	<div class="dropdown-contents pl-4">
@@ -123,7 +134,7 @@
 				<h4 class="text-white mt-3">
 					 Product Details
 				</h4>
-				<a href="add_products.html">
+				<a href="add_products.jsp">
 					<button class="btn btn-primary ml-4"><i class="fa fa-plus"></i></button>
 				</a>
 			</div>
@@ -131,77 +142,56 @@
 		</div>
 		
 		
-		<div class="container">
+		<div class="containe">
 			<table class="table table-striped">
 				<thead>
 					<tr>
+						<th class="text-white ">Product ID</th>
 						<th class="text-white ">Product Name</th>
 						<th class="text-white ">Manufacturer</th>
-						<th class="text-white ">Product Sale Price</th>
+						<th class="text-white ">Year Model</th>
 						<th class="text-white ">Product Category</th>
 						<th class="text-white ">Price</th>
 						<th class="text-white ">Quantity</th>
 						<th class="text-white ">Total Amount</th>
+						<th class="text-white ">Date/Time</th>
 						<th class="text-white ">Action</th>
 					</tr>
 				</thead>
 				
 				<tbody>
-					<tr>
-						<td class="text-white"> Engine </td>
-						<td class="text-white">Toyota </td>
-						<td class="text-white"> gh5</td>
-						<td class="text-white"> Engine</td>
-						<td class="text-white"> ghc50</td>
-						<td class="text-white"> ghc50</td>
-						<td class="text-white"> 10</td>
-						<td class="text-center">
-							<button class="btn btn-primary ml-4"><i class="fa fa-edit"></i></button>
-							<button class="btn btn-danger ml-4"><i class="fa fa-trash "></i></button>
+				<%
+					//database connection
+					//database connection
+					//database connection
+        	//database connection
+            Class.forName("org.postgresql.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
+			
+            //Creating statement
+            //Creating statement
+            Statement statement = conn.createStatement();
+            ResultSet select_query= statement.executeQuery("SELECT * FROM products");            
+            while(select_query.next()){
+				%>
+					<tr class="text-white">
+						<td><%= select_query.getString("id") %></td>
+						<td><%= select_query.getString("P_Name") %></td>
+						<td><%= select_query.getString("P_Manufacturer") %></td>
+						<td><%= select_query.getString("P_Y_Model") %></td>
+						<td><%= select_query.getString("P_Category") %></td>
+						<td><%= select_query.getString("P_Price") %></td>
+						<td><%= select_query.getString("P_Quantity") %></td>
+						<td><%= select_query.getString("p_t_amount") %></td>
+						<td>
+							<%= formattedDateTime %>
 						</td>
+						<td><button class="btn btn-primary"><i class="fa fa-edit"></i></button> <button class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+						
 					</tr>
-					
-					<tr>
-						<td class="text-white"> Engine </td>
-						<td class="text-white">Toyota </td>
-						<td class="text-white"> gh5</td>
-						<td class="text-white"> Engine</td>
-						<td class="text-white"> ghc50</td>
-						<td class="text-white"> ghc50</td>
-						<td class="text-white"> 10</td>
-						<td class="text-center">
-							<button class="btn btn-primary ml-4"><i class="fa fa-edit"></i></button>
-							<button class="btn btn-danger ml-4"><i class="fa fa-trash "></i></button>
-						</td>
-					</tr>
-					
-					<tr>
-						<td class="text-white"> Engine </td>
-						<td class="text-white">Toyota </td>
-						<td class="text-white"> gh5</td>
-						<td class="text-white"> Engine</td>
-						<td class="text-white"> ghc50</td>
-						<td class="text-white"> ghc50</td>
-						<td class="text-white"> 10</td>
-						<td class="text-center">
-							<button class="btn btn-primary ml-4"><i class="fa fa-edit"></i></button>
-							<button class="btn btn-danger ml-4"><i class="fa fa-trash "></i></button>
-						</td>
-					</tr>
-					
-					<tr>
-						<td class="text-white"> Engine </td>
-						<td class="text-white">Toyota </td>
-						<td class="text-white"> gh5</td>
-						<td class="text-white"> Engine</td>
-						<td class="text-white"> ghc50</td>
-						<td class="text-white"> ghc50</td>
-						<td class="text-white"> 10</td>
-						<td class="text-center">
-							<button class="btn btn-primary ml-4"><i class="fa fa-edit"></i></button>
-							<button class="btn btn-danger ml-4"><i class="fa fa-trash "></i></button>
-						</td>
-					</tr>
+				<% 
+            }
+            %>
 				</tbody>
 			</table>
 		</div>

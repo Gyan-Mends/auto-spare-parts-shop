@@ -1,3 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page import="java.sql.*" %>
+
+<%
+	//retrieving data from the input field
+	//retrieving data from the input field
+    String Pname = request.getParameter("Pname");
+    String Pmanufacturer = request.getParameter("pmanufacturer");
+    String Pymodel = request.getParameter("Pymodel");
+    String Pcategory = request.getParameter("Pcategory");
+    String Pprice =request.getParameter("Pprice");
+    String Pquantity = request.getParameter("Pquantity");
+    String Ptamount = request.getParameter("Ptamount");
+
+        try {
+        	//database connection
+        	//database connection
+            Class.forName("org.postgresql.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
+            
+            //creating sql statement
+            //creating sql statement
+            Statement statement = conn.createStatement();
+            int insert_query = statement.executeUpdate("INSERT INTO products(P_Name, P_Manufacturer,P_Y_Model,P_Category,P_Price,P_Quantity,P_T_Amount) VALUES ('"+Pname+"', '"+Pmanufacturer+"', '"+Pymodel+"', '"+Pcategory+"', '"+Pprice+"', '"+Pquantity+"', '"+Ptamount+"')");
+            if(insert_query > 0) {
+               %>
+               		<script>
+						alert("Product has been added successfully");
+					</script>
+               <% 
+            } else {
+            	 %>
+            		<script>
+						alert("Product has been added successfully");
+					</script>
+            	<% 
+            }
+            conn.close();
+        } catch (Exception e) {
+            out.println("Error: " + e);
+        }
+ 
+%>
+
 <!DOCTYPE html>
 <html>
 
@@ -35,9 +80,9 @@
 			<div class="profile">
 
 			</div>
-			<H6 class="text-white mt-2 ml-3">
+			<h6 class="text-white mt-2 ml-3">
 				Full Name
-				</H5>
+				</h6>
 		</div>
 	</div>
 
@@ -47,8 +92,8 @@
     <div class="side_nav d-block">
         <a href="admin_dashboard.html" class="color"><i class="fa fa-paw"></i> Dashboard</a>
         
-        <!-- products dropdown -->
-        <!-- products dropdown -->
+        <!-- products drop down -->
+        <!-- products drop down -->
         <div class="dropdown">
         	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i> Products</a>
         	<div class="dropdown-contents pl-4">
@@ -108,7 +153,7 @@
 
 	<div class="pageContent">
 
-		<form>
+		<form method="post" action="add_products.jsp">
 			<div class="container p-4">
 
 				<div>
@@ -118,11 +163,11 @@
 				<div class="row p-4">
 					<div class="col-sm-6">
 						<label class="text-white">Product Name</label><br>
-						<input class="product_input" type="text"><br><br>
+						<input class="product_input" type="text" name="Pname"><br><br>
 
 						<label class="text-white">Select Manufacturer</label><br>
-						<select class="product_input">
-							<option>Toyata </option>
+						<select class="product_input" name="pmanufacturer">
+							<option>Toyota </option>
 							<option>BMW</option>
 							<option>Opel</option>
 							<option>Kia</option>
@@ -130,7 +175,7 @@
 						</select><br><br>
 
 						<label class="text-white">Year Model</label><br>
-						<input type="number" class="product_input" ><br><br>
+						<input type="number" class="product_input" name="Pymodel"><br><br>
 
 						
 					</div>
@@ -139,20 +184,20 @@
 
 					<div class="col-sm-6">
 						<label class="text-white">Select Category</label><br>
-						<select class="product_input">
+						<select class="product_input" name="Pcategory">
 							<option>Engine </option>
 							<option>Tyre</option>
 							<option>Wheels </option>
 						</select><br><br>
 
 						<label class="text-white">Price</label><br>
-						<input class="product_input" type="number"><br><br>
+						<input class="product_input" type="number" name="Pprice"><br><br>
 
 						<label class="text-white">Quantity</label><br>
-						<input class="product_input" type="number"><br><br>
+						<input class="product_input" type="number" name="Pquantity"><br><br>
 						
 						<label class="text-white">Total Amount</label><br>
-						<input class="product_input" type="number"><br><br>
+						<input class="product_input" type="number" name="Ptamount"><br><br>
 					</div>
 
 					<div class="ml-auto mr-auto mt-4">
