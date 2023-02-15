@@ -50,9 +50,9 @@
 	//Retrieving data from the form
 	//Retrieving data from the form
     String Email = request.getParameter("email");
-    	session.setAttribute("email", Email);
+    	session.setAttribute("Email", Email);
     	 String Password = request.getParameter("password");
-    	session.setAttribute("password", Password);
+    	session.setAttribute("Password", Password);
     	
     
     if(request.getParameter("submit") != null){
@@ -60,7 +60,7 @@
         	//database connection
         	//database connection
             Class.forName("org.postgresql.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "godblessme5011");
+            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
             
             //checking if login details exist in the database
             //checking if login details exist in the database

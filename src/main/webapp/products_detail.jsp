@@ -1,16 +1,38 @@
+<%@ page import="java.sql.*" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.time.LocalDateTime" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+<% 
+	LocalDateTime currentTime = LocalDateTime.now();
+   	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    String formattedDateTime = currentTime.format(formatter);
+    						
+    %>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-	<meta charset="ISO-8859-1">
+	<style type="text/css">
+		thead {
+			background-color: #0095FF !important;
+		}
+		tr:nth-child(even){
+			background-color:#202020;
+		}
+		
+	</style>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 
 
 	<!-- ASSETS -->
 	<!-- ASSETS -->
-	<link rel="stylesheet" href="css/add_product.css">
+	<script src="./assets/chart.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="css/customers.css">
 	<link rel="stylesheet" href="css/admin_dashboard.css">
 	<link rel="stylesheet" href="./assets/all.css">
 	<link rel="stylesheet" href="./assets/bootstrap.css">
@@ -30,7 +52,7 @@
 
 			<p class="text-white mt-2 ml-4">
 				<i class="fa fa-paw"></i>
-				PRODUCTS || ADD PRODUCTS
+				DASHBOARD / OVERVIEW
 			</p>
 
 			<div class="profile">
@@ -38,12 +60,11 @@
 			</div>
 			<h6 class="text-white mt-2 ml-3">
 				Full Name
-				</h6>
+			</h6>
 		</div>
 	</div>
 
-
-	 <!-- side navigation bar -->
+ 	 <!-- side navigation bar -->
 	 <!-- side navigation bar -->
     <div class="side_nav d-block">
         <a href="admin_dashboard.html" class="color"><i class="fa fa-paw"></i> Dashboard</a>
@@ -85,9 +106,9 @@
        <!-- employees -->
         <a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i> Stores</a>
         <div class="dropdown">
-        	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i>Oders</a>
+        	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i>Orders</a>
         	<div class="dropdown-contents pl-4">
-        	<a href="orders_create.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add order</a>
+        		<a href="orders_create.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add order</a>
         		<a href="order_completed.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Completed orders</a>
         		<a href="orders_pending.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Pending orders</a>
         	</div>
@@ -106,63 +127,78 @@
         <a href="" class="color "><i class="fa fa-fw fa-power-off"></i> Logout</a>
     </div>
 
-
 	<div class="pageContent">
-
-		<form method="post" action="add_products.jsp">
-			<div class="container p-4">
-
-				<div>
-					<h4 class="text-white ml-4">Add New Product Here</h4>
-				</div><hr>
-
-				<div class="row p-4">
-					<div class="col-sm-6">
-						<label class="text-white">Product Name</label><br>
-						<input class="product_input" type="text" name="Pname" required><br><br>
-
-						<label class="text-white">Select Manufacturer</label><br>
-						<select class="product_input" name="pmanufacturer">
-							<option>Toyota </option>
-							<option>BMW</option>
-							<option>Opel</option>
-							<option>Kia</option>
-							<option>Ford</option>
-						</select><br><br>
-
-						<label class="text-white">Year Model</label><br>
-						<input type="number" class="product_input" name="Pymodel" required><br><br>
-
-						
-					</div>
-
-
-
-					<div class="col-sm-6">
-						<label class="text-white">Select Category</label><br>
-						<select class="product_input" name="Pcategory">
-							<option>Engine </option>
-							<option>Tyre</option>
-							<option>Wheels </option>
-						</select><br><br>
-
-						<label class="text-white">Price</label><br>
-						<input class="product_input" type="number" name="Pprice" required><br><br>
-
-						<label class="text-white">Quantity</label><br>
-						<input class="product_input" type="number" name="Pquantity" required><br><br>
-						
-						<label class="text-white">Total Amount</label><br>
-						<input class="product_input" type="number" name="Ptamount" required><br><br>
-					</div>
-
-					<div class="ml-auto mr-auto mt-4">
-						<input class="btn btn-primary submit" value="Insert Product" type="submit" name="submit">
-					</div>
-				</div>
+	
+		<div class="p-4 mb-4 ml-4 ">
+			<div class="d-flex">
+				<h4 class="text-white mt-3">
+					 Product Details
+				</h4>
+				<a href="add_products.jsp">
+					<button class="btn btn-primary ml-4"><i class="fa fa-plus"></i></button>
+				</a>
 			</div>
-		</form>
+			<hr>
+		</div>
+		
+		
+		<div class="containe">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th class="text-white ">Product ID</th>
+						<th class="text-white ">Product Name</th>
+						<th class="text-white ">Manufacturer</th>
+						<th class="text-white ">Year Model</th>
+						<th class="text-white ">Product Category</th>
+						<th class="text-white ">Price</th>
+						<th class="text-white ">Quantity</th>
+						<th class="text-white ">Total Amount</th>
+						<th class="text-white ">Date/Time</th>
+						<th class="text-white ">Action</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+				<%
+					//database connection
+					//database connection
+					//database connection
+        	//database connection
+            Class.forName("org.postgresql.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
+			
+            //Creating statement
+            //Creating statement
+            Statement statement = conn.createStatement();
+            ResultSet select_query= statement.executeQuery("SELECT * FROM products");            
+            while(select_query.next()){
+				%>
+					<tr class="text-white">
+						<td><%= select_query.getString("id") %></td>
+						<td><%= select_query.getString("P_Name") %></td>
+						<td><%= select_query.getString("P_Manufacturer") %></td>
+						<td><%= select_query.getString("P_Y_Model") %></td>
+						<td><%= select_query.getString("P_Category") %></td>
+						<td><%= select_query.getString("P_Price") %></td>
+						<td><%= select_query.getString("P_Quantity") %></td>
+						<td><%= select_query.getString("p_t_amount") %></td>
+						<td>
+							<%= formattedDateTime %>
+						</td>
+						<td><button class="btn btn-primary"><i class="fa fa-edit"></i></button> <button class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+						
+					</tr>
+				<% 
+            }
+            %>
+				</tbody>
+			</table>
+		</div>
 	</div>
+
+
+
 
 
 
@@ -177,56 +213,3 @@
 </body>
 
 </html>
-
-
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ page import="java.sql.*" %>
-
-<%
-	//retrieving data from the input field
-	//retrieving data from the input field
-    String Pname = request.getParameter("Pname");
-    String Pmanufacturer = request.getParameter("pmanufacturer");
-    String Pymodel = request.getParameter("Pymodel");
-    String Pcategory = request.getParameter("Pcategory");
-    String Pprice =request.getParameter("Pprice");
-    String Pquantity = request.getParameter("Pquantity");
-    String Ptamount = request.getParameter("ptamount");
-    
-  
-
-       if(request.getParameter("submit") != null){
-    	   try {
-           	
-       		//database connection
-           	//database connection
-               Class.forName("org.postgresql.Driver");
-               Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "godblessme5011");
-               
-               //creating sql statement
-               //creating sql statement
-               Statement statement = conn.createStatement();
-               int insert_query = statement.executeUpdate("INSERT INTO products(P_Name, P_Manufacturer,P_Y_Model,P_Category,P_Price,P_Quantity,P_T_Amount) VALUES ('"+Pname+"', '"+Pmanufacturer+"', '"+Pymodel+"', '"+Pcategory+"', '"+Pprice+"', '"+Pquantity+"', '"+Ptamount+"')");
-               if(insert_query>0) {
-                  %>
-                  		<script>
-   						alert("Product has been added successfully");
-   					</script>
-                  <% 
-               } else {
-               	 %>
-               		<script>
-   						alert("Product has been added successfully");
-   					</script>
-               	<% 
-               }
-               conn.close();
-       	
-       } catch (Exception e) {
-           out.println("Error: " + e);
-       }
-  
-       }
- 
-%>
