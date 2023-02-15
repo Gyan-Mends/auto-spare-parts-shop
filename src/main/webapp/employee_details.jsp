@@ -1,7 +1,22 @@
+<%@ page import="java.sql.*" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.time.LocalDateTime" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+	<style type="text/css">
+		thead {
+			background-color: #0095FF !important;
+		}
+		tr:nth-child(even){
+			background-color:#202020;
+		}
+		
+	</style>
 
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +26,7 @@
 
 	<!-- ASSETS -->
 	<!-- ASSETS -->
+	<script src="./assets/chart.min.js" type="text/javascript"></script>
 	<link rel="stylesheet" href="css/customers.css">
 	<link rel="stylesheet" href="css/admin_dashboard.css">
 	<link rel="stylesheet" href="./assets/all.css">
@@ -37,19 +53,19 @@
 			<div class="profile">
 
 			</div>
-			<H6 class="text-white mt-2 ml-3">
+			<h6 class="text-white mt-2 ml-3">
 				Full Name
-				</H5>
+			</h6>
 		</div>
 	</div>
 
-	  <!-- side navigation bar -->
+ 	 <!-- side navigation bar -->
 	 <!-- side navigation bar -->
     <div class="side_nav d-block">
         <a href="admin_dashboard.html" class="color"><i class="fa fa-paw"></i> Dashboard</a>
         
-        <!-- products dropdown -->
-        <!-- products dropdown -->
+        <!-- products drop down -->
+        <!-- products drop down -->
         <div class="dropdown">
         	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i> Products</a>
         	<div class="dropdown-contents pl-4">
@@ -85,11 +101,12 @@
        <!-- employees -->
         <a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i> Stores</a>
         <div class="dropdown">
-        	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i>Oders</a>
+        	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i>Orders</a>
         	<div class="dropdown-contents pl-4">
         		<a href="orders_create.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add order</a>
         		<a href="order_completed.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Completed orders</a>
-        		<a href="orders_pending.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Pending orders</a>        	</div>
+        		<a href="orders_pending.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Pending orders</a>
+        	</div>
         </div>
         
         <!-- payments -->
@@ -106,59 +123,71 @@
     </div>
 
 	<div class="pageContent">
-
-		<form>
-			<div class="container p-4">
-
-				<div>
-					<h4 class="text-white ml-4">Add New Employee</h4>
-				</div>
-				<hr>
-
-				<div class="row p-4">
-					<div class="col-sm-6">
-
-						<label class="text-white">First Name</label><br>
-						<input class="customers_input" type="text" name="EFname"><br><br>
-
-						<label class="text-white">Last Name</label><br>
-						<input class="customers_input" type="text"name="ELname" ><br><br>
-						
-						<label class="text-white">Gender</label><br>
-						<select class="customers_input" name="Egender">
-							<option>Male</option>
-							<option>Female</option>
-						</select><br><br>
-					</div>
-
-
-
-					<div class="col-sm-6">
-
-						<label class="text-white">Phone</label><br>
-						<input class="customers_input" type="number" name="Ephone"><br><br>
-
-						<label class="text-white">Email</label><br>
-						<input class="customers_input" type="email" name="Eemail"><br><br>
-
-						<label class="text-white">Role</label><br>
-						<input class="customers_input" type="text" name="Erole"><br><br>
-					</div>
-
-					<div class="ml-auto mr-auto mt-4">
-						<input class="btn btn-primary submit" value="Add Customer" type="submit">
-					</div>
-				</div>
+	
+		<div class="p-4 mb-4 ml-4 ">
+			<div class="d-flex">
+				<h4 class="text-white mt-3">
+					 Employees Details
+				</h4>
+				<a href="add_employee.jsp">
+					<button class="btn btn-primary ml-4"><i class="fa fa-plus"></i></button>
+				</a>
 			</div>
-		</form>
+			<hr>
+		</div>
+		
+		
+		<div class="containe">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th class="text-white "> ID</th>
+						<th class="text-white ">First Name</th>
+						<th class="text-white ">Last Name</th>
+						<th class="text-white ">Gender</th>
+						<th class="text-white ">Phone</th>
+						<th class="text-white ">Email</th>
+						<th class="text-white ">Role</th>
+						<th class="text-white ">Date</th>
+						<th class="text-white ">Action</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+				<%
+					//database connection
+					//database connection
+					//database connection
+        	//database connection
+            Class.forName("org.postgresql.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
+			
+            //Creating statement
+            //Creating statement
+            Statement statement = conn.createStatement();
+            ResultSet select_query= statement.executeQuery("SELECT * FROM employees");            
+            while(select_query.next()){
+				%>
+					<tr class="text-white">
+						<td><%= select_query.getString("id") %></td>
+						<td><%= select_query.getString("e_f_name") %></td>
+						<td><%= select_query.getString("e_l_name") %></td>
+						<td><%= select_query.getString("e_gender") %></td>
+						<td><%= select_query.getString("e_phone") %></td>
+						<td><%= select_query.getString("e_email") %></td>
+						<td><%= select_query.getString("e_role") %></td>
+						<td><%= select_query.getString("date") %></td>
+						
+						<td><button class="btn btn-primary"><i class="fa fa-edit"></i></button> <button class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+						
+					</tr>
+				<% 
+            }
+            %>
+				</tbody>
+			</table>
+		</div>
 	</div>
-
-
-
-
-
-
-
 
 	<!-- SCRIPTS -->
 	<!-- SCRIPTS -->
@@ -169,48 +198,3 @@
 </body>
 
 </html>
-
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ page import="java.sql.*" %>
-
-<%
-	//retrieving data from the input field
-	//retrieving data from the input field
-    String Pname = request.getParameter("Pname");
-    String Pmanufacturer = request.getParameter("pmanufacturer");
-    String Pymodel = request.getParameter("Pymodel");
-    String Pcategory = request.getParameter("Pcategory");
-    String Pprice =request.getParameter("Pprice");
-    String Pquantity = request.getParameter("Pquantity");
-    String Ptamount = request.getParameter("Ptamount");
-
-        try {
-        	//database connection
-        	//database connection
-            Class.forName("org.postgresql.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
-            
-            //creating sql statement
-            //creating sql statement
-            Statement statement = conn.createStatement();
-            int insert_query = statement.executeUpdate("INSERT INTO products(P_Name, P_Manufacturer,P_Y_Model,P_Category,P_Price,P_Quantity,P_T_Amount) VALUES ('"+Pname+"', '"+Pmanufacturer+"', '"+Pymodel+"', '"+Pcategory+"', '"+Pprice+"', '"+Pquantity+"', '"+Ptamount+"')");
-            if(insert_query>0) {
-               %>
-               		<script>
-						alert("Product has been added successfully");
-					</script>
-               <% 
-            } else {
-            	 %>
-            		<script>
-						alert("Product has been added successfully");
-					</script>
-            	<% 
-            }
-            conn.close();
-        } catch (Exception e) {
-            out.println("Error: " + e);
-        }
- 
-%>

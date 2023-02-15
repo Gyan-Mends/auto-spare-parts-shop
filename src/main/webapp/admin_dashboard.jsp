@@ -1,5 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page import="java.sql.*" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.time.LocalDateTime" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+<%
+
+//starting session
+// starting session
+		HttpSession Session = request.getSession();
+
+//database connection
+//database connection
+//database connection
+//database connection
+Class.forName("org.postgresql.Driver");
+Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
+%>
+
 
     <!DOCTYPE html>
 <html lang="en">
@@ -46,9 +62,9 @@
 			<div class="profile">
 				<img class="profile" alt="admin profile pic" src="../images/modern-abstract-background-digital-network-technology-other-concept_10585-776.jpg">
 			</div>
-			<H6 class="text-white mt-2 ml-3 ">
+			<h6 class="text-white mt-2 ml-3 ">
 				ADMIN
-			</H5>
+			</h6>
 		</div>
 	</div>
 	
@@ -66,7 +82,45 @@
         		<a href="products_details.jsp" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Products details</a>
         	</div>
         </div>
+        
+        <!-- employees -->
+        <!-- employees -->
+        <div class="dropdown">
+        	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i>Employees</a>
+        	<div class="dropdown-contents pl-4">
+        		<a href="add_employee.jsp" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add Employee</a>
+        		<a href="employee_details.jsp" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Employees Details</a>
+        	</div>
+        </div>
+        
+        <!-- point of sales -->
+       <!-- point of sales -->
+       <div class="dropdown">
+       		 <a href="" class="color dropdown-toggle"><i class="fa fa-eye"></i> Point of Sale</a>
+       		 <div class="dropdown-contents pl-4">
+       		 		 <a href="add_sales.jsp" class="color dropdown-list 	"><i class="fa fa-cart-plus"></i>Make Sale</a>
+       		 		  <a href="sales_details.jsp" class="color dropdown-list"><i class="fa fa-cart-plus"></i>Sales Details</a>
+       		 </div>
+       </div>
        
+       <!-- ORDERS -->
+       <!-- ORDERS -->
+        
+        <div class="dropdown">
+        	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i>Orders</a>
+        	<div class="dropdown-contents pl-4">
+        		<a href="add_order.jsp" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add order</a>
+        		<a href="order_details.jsp" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Order Details</a>
+        		<a href="orders_pending.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Pending orders</a>
+
+        	</div>
+        </div>
+       
+        
+        <!-- employees -->
+       <!-- employees -->
+        <a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i> Stores</a>
+        
        <!-- products categories -->
        <!-- products categories -->
        <div class="dropdown">
@@ -78,42 +132,31 @@
        		 		  <a href="" class="color dropdown-list"><i class="fa fa-cart-plus"></i> Kia</a>
        		 </div>
        </div>
-       
-       <!-- employees -->
-       <!-- employees -->
-        <a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i> Stores</a>
-        <div class="dropdown">
-        	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i>Employees</a>
-        	<div class="dropdown-contents pl-4">
-        		<a href="add_employees.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add Employee</a>
-        		<a href="employee_details.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Employees Details</a>
-        	</div>
-        </div>
         
-         <!-- employees -->
-       <!-- employees -->
-        <a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i> Stores</a>
-        <div class="dropdown">
-        	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i>Orders</a>
-        	<div class="dropdown-contents pl-4">
-        		<a href="orders_create.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add order</a>
-        		<a href="order_completed.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Completed orders</a>
-        		<a href="orders_pending.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Pending orders</a>
+        <%
+  // Obtain the HttpSession object
+  HttpSession Session = request.getSession();
+  
+  // Invalidate the session
+  Session.invalidate();
+  
+  // Redirect to a login page or some other page
+  response.sendRedirect("index.jsp");
+%>
+In this example, we have a logout button in our JSP page that will submit the form to the "logout.jsp" page when clicked. In the "logout.jsp" page, we obtain the HttpSession object using the request object's getSession() method, and then call its invalidate() method to end the session. Finally, we use the response object's sendRedirect() method to redirect the user to a login page or some other page in your application.
 
-        	</div>
-        </div>
+Note that you can customize the redirect URL to go to any page that makes sense for your application.
+
+
+
+
         
-        <!-- payments -->
-       <!-- payments -->
-       <div class="dropdown">
-       		 <a href="" class="color dropdown-toggle"><i class="fa fa-eye"></i> Point of Sale</a>
-       		 <div class="dropdown-contents pl-4">
-       		 		 <a href="add_sales.html" class="color dropdown-list 	"><i class="fa fa-cart-plus"></i>Make Sale</a>
-       		 		  <a href="sales_details.html" class="color dropdown-list"><i class="fa fa-cart-plus"></i>Sales Details</a>
-       		 </div>
-       </div>
+       
         <a href="" class="color "><i class="fa fa-book"></i> Report</a>
-        <a href="" class="color "><i class="fa fa-fw fa-power-off"></i> Logout</a>
+        <!-- logout -->
+       <form action="amin_dashboard.jsp">
+  			<input type="submit" value="Logout">
+	</form>
     </div>
 
     <!-- page contents -->
@@ -133,7 +176,21 @@
 
                             <div class="col-sm-6">
                                 <div class="white">
-                                    <h1>10</h1>
+                                    <h1>
+                                    	<%
+                                    		int count=0;
+                                    		// Create a statement object to execute the query
+                                        	Statement stmt = conn.createStatement();
+                                        	// Execute the query to get the count of rows in the table
+                                        	ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM products");
+                                        	if(rs.next()){
+                                        		 count = rs.getInt(1);
+                                        		 // Display the count of rows in the table
+                                        		  out.println( count );
+                                        	}
+                                        	
+                                    	%>
+                                    </h1>
                                     <h6>Products</h6>
                                 </div>
                             </div>
@@ -170,8 +227,22 @@
 
                             <div class="col-sm-6">
                                 <div class="white">
-                                    <h1>14</h1>
-                                    <h6>Customers</h6>
+                                    <h1>
+                                    	<%
+                                    		int count2=0;
+                                    		// Create a statement object to execute the query
+                                        	Statement stmt2 = conn.createStatement();
+                                        	// Execute the query to get the count of rows in the table
+                                        	ResultSet rs2 = stmt2.executeQuery("SELECT COUNT(*) FROM employees");
+                                        	if(rs2.next()){
+                                        		 count2 = rs2.getInt(1);
+                                        		 // Display the count of rows in the table
+                                        		  out.println( count2 );
+                                        	}
+                                        	
+                                    	%>
+                                    </h1>
+                                    <h6>Staff</h6>
                                 </div>
                             </div>
                         </div>
@@ -207,7 +278,21 @@
 
                             <div class="col-sm-6">
                                 <div class="white">
-                                    <h1>19</h1>
+                                    <h1>
+                                    	<%
+                                    		int count3=0;
+                                    		// Create a statement object to execute the query
+                                        	Statement stmt3 = conn.createStatement();
+                                        	// Execute the query to get the count of rows in the table
+                                        	ResultSet rs3 = stmt3.executeQuery("SELECT COUNT(*) FROM employees");
+                                        	if(rs3.next()){
+                                        		 count3 = rs3.getInt(1);
+                                        		 // Display the count of rows in the table
+                                        		  out.println( count3 );
+                                        	}
+                                        	
+                                    	%>
+                                    </h1>
                                     <h6>Products Categories</h6>
                                 </div>
                             </div>
@@ -242,7 +327,21 @@
 
                             <div class="col-sm-6">
                                 <div class="white">
-                                    <h1>65</h1>
+                                    <h1>
+                                    	<%
+                                    		int count4=0;
+                                    		// Create a statement object to execute the query
+                                        	Statement stmt4 = conn.createStatement();
+                                        	// Execute the query to get the count of rows in the table
+                                        	ResultSet rs4 = stmt4.executeQuery("SELECT COUNT(*) FROM orders");
+                                        	if(rs4.next()){
+                                        		 count4 = rs4.getInt(1);
+                                        		 // Display the count of rows in the table
+                                        		  out.println( count4 );
+                                        	}
+                                        	
+                                    	%>
+                                    </h1>
                                     <h6>Orders</h6>
                                 </div>
                             </div>
@@ -319,7 +418,21 @@
 
                             <div class="col-sm-6">
                                 <div class="brown">
-                                    <h1>17</h1>
+                                    <h1>
+                                    	<%
+                                    		int count5=0;
+                                    		// Create a statement object to execute the query
+                                        	Statement stmt5 = conn.createStatement();
+                                        	// Execute the query to get the count of rows in the table
+                                        	ResultSet rs5 = stmt5.executeQuery("SELECT COUNT(*) FROM orders");
+                                        	if(rs5.next()){
+                                        		 count5 = rs5.getInt(1);
+                                        		 // Display the count of rows in the table
+                                        		  out.println( count5 );
+                                        	}
+                                        	
+                                    	%>
+                                    </h1>
                                     <h6>Pending Orders</h6>
                                 </div>
                             </div>
@@ -427,81 +540,46 @@
 			<table class="table table-striped ml-4" style="margin-top:100px !important;margin-left:30px;">
 				<thead>
 					<tr>
+						<th class="text-white "> ID</th>
 						<th class="text-white ">First Name</th>
 						<th class="text-white ">Last Name</th>
+						<th class="text-white ">Gender</th>
 						<th class="text-white ">Phone</th>
+						<th class="text-white ">Email</th>
+						<th class="text-white ">Role</th>
 						<th class="text-white ">Date</th>
-						<th class="text-white ">Actions</th>
+						<th class="text-white ">Action</th>
 					</tr>
 				</thead>
 				
 				<tbody>
-					<tr>
-						<td class="text-white"> Mends  </td>
-						<td class="text-white"> Gyan</td>
-						<td class="text-white"> 0548348485</td>
-						<td class="text-white"> 30-01-2023</td>
-						<td class="text-center">
-							<button class="btn btn-primary ml-4"><i class="fa fa-edit"></i></button>
-							<button class="btn btn-danger ml-4"><i class="fa fa-trash "></i></button>
-						</td>
-					</tr>
+				<%
 					
-					<tr>
-						<td class="text-white"> Emmanuel Oppong  </td>
-						<td class="text-white"> Coffie</td>
-						<td class="text-white"> 0548348485</td>
-						<td class="text-white"> 30-01-2023</td>
-						<td class="text-center">
-							<button class="btn btn-primary ml-4"><i class="fa fa-edit"></i></button>
-							<button class="btn btn-danger ml-4"><i class="fa fa-trash "></i></button>
-						</td>
+			
+            //Creating statement
+            //Creating statement
+            Statement statement = conn.createStatement();
+            ResultSet select_query= statement.executeQuery("SELECT * FROM employees");            
+            while(select_query.next()){
+				%>
+					<tr class="text-white">
+						<td><%= select_query.getString("id") %></td>
+						<td><%= select_query.getString("e_f_name") %></td>
+						<td><%= select_query.getString("e_l_name") %></td>
+						<td><%= select_query.getString("e_gender") %></td>
+						<td><%= select_query.getString("e_phone") %></td>
+						<td><%= select_query.getString("e_email") %></td>
+						<td><%= select_query.getString("e_role") %></td>
+						<td><%= select_query.getString("date") %></td>
+						
+						<td><button class="btn btn-primary"><i class="fa fa-edit"></i></button> <button class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+						
 					</tr>
-					
-					<tr>
-						<td class="text-white"> Well  </td>
-						<td class="text-white"> Done</td>
-						<td class="text-white"> 0548348485</td>
-						<td class="text-white"> 30-01-2023</td>
-						<td class="text-center">
-							<button class="btn btn-primary ml-4"><i class="fa fa-edit"></i></button>
-							<button class="btn btn-danger ml-4"><i class="fa fa-trash "></i></button>
-						</td>
-					</tr>
-					
-					<tr>
-						<td class="text-white"> Fati  </td>
-						<td class="text-white"> Qwarm</td>
-						<td class="text-white"> 0548348485</td>
-						<td class="text-white"> 30-01-2023</td>
-						<td class="text-center">
-							<button class="btn btn-primary ml-4"><i class="fa fa-edit"></i></button>
-							<button class="btn btn-danger ml-4"><i class="fa fa-trash "></i></button>
-						</td>
-					</tr>
-					
-					<tr>
-						<td class="text-white"> Godfred  </td>
-						<td class="text-white"> Qwarm</td>
-						<td class="text-white"> 0548348485</td>
-						<td class="text-white"> 30-01-2023</td>
-						<td class="text-center">
-							<button class="btn btn-primary ml-4"><i class="fa fa-edit"></i></button>
-							<button class="btn btn-danger ml-4"><i class="fa fa-trash "></i></button>
-						</td>
-					</tr>
-					
-					<tr>
-						<td class="text-white"> Mends  </td>
-						<td class="text-white"> Gyan</td>
-						<td class="text-white"> 0548348485</td>
-						<td class="text-white"> 30-01-2023</td>
-						<td class="text-center">
-							<button class="btn btn-primary ml-4"><i class="fa fa-edit"></i></button>
-							<button class="btn btn-danger ml-4"><i class="fa fa-trash "></i></button>
-						</td>
-					</tr>
+				<% 
+            }
+            %>
 				</tbody>
+				
 			</table>
 		</div>
         </div>

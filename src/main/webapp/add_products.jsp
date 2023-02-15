@@ -119,7 +119,7 @@
 				<div class="row p-4">
 					<div class="col-sm-6">
 						<label class="text-white">Product Name</label><br>
-						<input class="product_input" type="text" name="Pname"><br><br>
+						<input class="product_input" type="text" name="Pname" required><br><br>
 
 						<label class="text-white">Select Manufacturer</label><br>
 						<select class="product_input" name="pmanufacturer">
@@ -131,7 +131,7 @@
 						</select><br><br>
 
 						<label class="text-white">Year Model</label><br>
-						<input type="number" class="product_input" name="Pymodel"><br><br>
+						<input type="number" class="product_input" name="Pymodel" required><br><br>
 
 						
 					</div>
@@ -147,13 +147,13 @@
 						</select><br><br>
 
 						<label class="text-white">Price</label><br>
-						<input class="product_input" type="number" name="Pprice"><br><br>
+						<input class="product_input" type="number" name="Pprice" required><br><br>
 
 						<label class="text-white">Quantity</label><br>
-						<input class="product_input" type="number" name="Pquantity"><br><br>
+						<input class="product_input" type="number" name="Pquantity" required><br><br>
 						
 						<label class="text-white">Total Amount</label><br>
-						<input class="product_input" type="number" name="Ptamount"><br><br>
+						<input class="product_input" type="number" name="Ptamount" required><br><br>
 					</div>
 
 					<div class="ml-auto mr-auto mt-4">
@@ -192,7 +192,8 @@
     String Pcategory = request.getParameter("Pcategory");
     String Pprice =request.getParameter("Pprice");
     String Pquantity = request.getParameter("Pquantity");
-    String Ptamount = request.getParameter("Ptamount");
+    String Ptamount = request.getParameter("ptamount");
+    
   
 
        if(request.getParameter("submit") != null){

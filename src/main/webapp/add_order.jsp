@@ -2,15 +2,6 @@
 <html lang="en">
 
 <head>
-	<style type="text/css">
-		thead {
-			background-color: #0095FF !important;
-		}
-		tr:nth-child(even){
-			background-color:#202020;
-		}
-		
-	</style>
 
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,19 +37,19 @@
 			<div class="profile">
 
 			</div>
-			<H6 class="text-white mt-2 ml-3">
+			<h6 class="text-white mt-2 ml-3">
 				Full Name
-				</H5>
+			</h6>
 		</div>
 	</div>
 
-	  <!-- side navigation bar -->
+	 <!-- side navigation bar -->
 	 <!-- side navigation bar -->
     <div class="side_nav d-block">
         <a href="admin_dashboard.html" class="color"><i class="fa fa-paw"></i> Dashboard</a>
         
-        <!-- products dropdown -->
-        <!-- products dropdown -->
+        <!-- products drop down -->
+        <!-- products drop down -->
         <div class="dropdown">
         	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i> Products</a>
         	<div class="dropdown-contents pl-4">
@@ -96,7 +87,7 @@
         <div class="dropdown">
         	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i>Orders</a>
         	<div class="dropdown-contents pl-4">
-        		<a href="orders_create.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add order</a>
+        	<a href="orders_create.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add order</a>
         		<a href="order_completed.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Completed orders</a>
         		<a href="orders_pending.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Pending orders</a>
         	</div>
@@ -116,89 +107,46 @@
     </div>
 
 	<div class="pageContent">
-	
-		<div class="p-4 mb-4 ml-4 ">
-			<div class="d-flex">
-				<h4 class="text-white mt-3">
-					Employees Details
-				</h4>
-				<a href="add_employees.html">
-					<button class="btn btn-primary ml-4"><i class="fa fa-plus"></i></button>
-				</a>
+
+		<form>
+			<div class="container p-4">
+
+				<div>
+					<h4 class="text-white ml-4">Add Order Here</h4>
+				</div>
+				<hr>
+
+				<div class="row p-4">
+					<div class="col-sm-6">
+
+						<label class="text-white">Customers Name</label><br>
+						<input class="customers_input" type="text" name="Cname" required><br><br>
+
+						<label class="text-white">Spare part</label><br>
+						<input class="customers_input" type="text" name="spare-parts" required><br><br>
+						
+						<label class="text-white">Quantity</label><br>
+						<input class="customers_input" type="number" name="quantity" required><br><br>
+					</div>
+
+
+
+					<div class="col-sm-6">
+
+						<label class="text-white">Price</label><br>
+						<input class="customers_input" type="number" name="price" required><br><br>
+
+						<label class="text-white">Total</label><br>
+						<input class="customers_input" type="number" name="total" required><br><br>
+
+					</div>
+
+					<div class="ml-auto mr-auto mt-4">
+						<input class="btn btn-primary submit" value="Make sales" type="submit" name="submit">
+					</div>
+				</div>
 			</div>
-			<hr>
-		</div>
-		
-		
-		<div class="container">
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th class="text-white ">First Name</th>
-						<th class="text-white ">Last Name</th>
-						<th class="text-white ">Gender</th>
-						<th class="text-white ">Email</th>
-						<th class="text-white ">Phone</th>
-						<th class="text-white ">Role</th>
-						<th class="text-white ">Action</th>
-					</tr>
-				</thead>
-				
-				<tbody>
-					<tr>
-						<td class="text-white"> Mends  </td>
-						<td class="text-white"> Gyan</td>
-						<td class="text-white"> Male</td>
-						<td class="text-white"> gyan@gmail.com</td>
-						<td class="text-white"> 0548348485</td>
-						<td class="text-white"> Sales Personnel</td>
-						<td class="text-center">
-							<button class="btn btn-primary ml-4"><i class="fa fa-edit"></i></button>
-							<button class="btn btn-danger ml-4"><i class="fa fa-trash "></i></button>
-						</td>
-					</tr>
-					
-					<tr>
-						<td class="text-white"> Emmanuel Oppong  </td>
-						<td class="text-white"> Coffie</td>
-						<td class="text-white"> Male</td>
-						<td class="text-white"> gyan@gmail.com</td>
-						<td class="text-white"> 0548348485</td>
-						<td class="text-white"> Sales Personnel</td>
-						<td class="text-center">
-							<button class="btn btn-primary ml-4"><i class="fa fa-edit"></i></button>
-							<button class="btn btn-danger ml-4"><i class="fa fa-trash "></i></button>
-						</td>
-					</tr>
-					
-					<tr>
-						<td class="text-white"> Well  </td>
-						<td class="text-white"> Done</td>
-						<td class="text-white"> Male</td>
-						<td class="text-white"> gyan@gmail.com</td>
-						<td class="text-white"> 0548348485</td>
-						<td class="text-white"> Sales Personnel</td>
-						<td class="text-center">
-							<button class="btn btn-primary ml-4"><i class="fa fa-edit"></i></button>
-							<button class="btn btn-danger ml-4"><i class="fa fa-trash "></i></button>
-						</td>
-					</tr>
-					
-					<tr>
-						<td class="text-white"> Mends  </td>
-						<td class="text-white"> Gyan</td>
-						<td class="text-white"> Male</td>
-						<td class="text-white"> gyan@gmail.com</td>
-						<td class="text-white"> 0548348485</td>
-						<td class="text-white"> Sales Personnel</td>
-						<td class="text-center">
-							<button class="btn btn-primary ml-4"><i class="fa fa-edit"></i></button>
-							<button class="btn btn-danger ml-4"><i class="fa fa-trash "></i></button>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+		</form>
 	</div>
 
 
@@ -217,3 +165,60 @@
 </body>
 
 </html>
+
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.time.LocalDateTime" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+
+<%
+	//retrieving data from the input field
+	//retrieving data from the input field
+    String Cname = request.getParameter("Cname");
+    String spare_parts = request.getParameter("spare-parts");
+    String Quantity = request.getParameter("quantity");
+    String Price = request.getParameter("price");
+    String Total =request.getParameter("total");
+   
+    LocalDateTime currentTime = LocalDateTime.now();
+   	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    String formattedDateTime = currentTime.format(formatter);
+
+    
+  
+
+       if(request.getParameter("submit") != null){
+    	   try {
+           	
+       		//database connection
+           	//database connection
+               Class.forName("org.postgresql.Driver");
+               Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
+               
+               //creating sql statement
+               //creating sql statement
+               Statement statement = conn.createStatement();
+               int insert_query = statement.executeUpdate("INSERT INTO orders(Customer_Name, Spare_Part,Quantity,Price,Total,Date) VALUES ('"+Cname+"', '"+spare_parts+"', '"+Quantity+"', '"+Price+"', '"+Total+"', '"+formattedDateTime+"')");
+               if(insert_query>0) {
+                  %>
+                  		<script>
+   						alert("Order has been made successfully");
+   					</script>
+                  <% 
+               } else {
+               	 %>
+               		<script>
+   						alert("Unable to make order successfully");
+   					</script>
+               	<% 
+               }
+               conn.close();
+       	
+       } catch (Exception e) {
+           out.println("Error: " + e);
+       }
+  
+       }
+       %>

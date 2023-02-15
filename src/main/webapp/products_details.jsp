@@ -36,6 +36,9 @@
 	<link rel="stylesheet" href="css/admin_dashboard.css">
 	<link rel="stylesheet" href="./assets/all.css">
 	<link rel="stylesheet" href="./assets/bootstrap.css">
+	
+	
+  
 
 </head>
 
@@ -137,13 +140,14 @@
 				<a href="add_products.jsp">
 					<button class="btn btn-primary ml-4"><i class="fa fa-plus"></i></button>
 				</a>
+				 
 			</div>
 			<hr>
 		</div>
 		
 		
 		<div class="containe">
-			<table class="table table-striped">
+			<table class="table table-striped" >
 				<thead>
 					<tr>
 						<th class="text-white ">Product ID</th>
@@ -171,7 +175,10 @@
             //Creating statement
             //Creating statement
             Statement statement = conn.createStatement();
-            ResultSet select_query= statement.executeQuery("SELECT * FROM products");            
+            Statement stmt = conn.createStatement();
+            ResultSet select_query= statement.executeQuery("SELECT * FROM products");
+            
+           
             while(select_query.next()){
 				%>
 					<tr class="text-white">
@@ -186,7 +193,7 @@
 						<td>
 							<%= formattedDateTime %>
 						</td>
-						<td><button class="btn btn-primary"><i class="fa fa-edit"></i></button> <button class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+						<td class="-flex"><button class="btn btn-primary"><i class="fa fa-edit "></i></button><a href="product_details.jsp?id=<id>"><button class="btn btn-danger "><i class="fa fa-trash"></i></button></a></td>
 						
 					</tr>
 				<% 
@@ -196,13 +203,6 @@
 			</table>
 		</div>
 	</div>
-
-
-
-
-
-
-
 
 	<!-- SCRIPTS -->
 	<!-- SCRIPTS -->
