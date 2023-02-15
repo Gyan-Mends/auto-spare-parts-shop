@@ -166,7 +166,7 @@
 					//database connection
         	//database connection
             Class.forName("org.postgresql.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
+            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "godblessme5011");
 			
             //Creating statement
             //Creating statement
