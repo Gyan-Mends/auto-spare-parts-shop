@@ -133,30 +133,10 @@ Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/
        		 </div>
        </div>
         
-        <%
-  // Obtain the HttpSession object
-  HttpSession Session = request.getSession();
-  
-  // Invalidate the session
-  Session.invalidate();
-  
-  // Redirect to a login page or some other page
-  response.sendRedirect("index.jsp");
-%>
-In this example, we have a logout button in our JSP page that will submit the form to the "logout.jsp" page when clicked. In the "logout.jsp" page, we obtain the HttpSession object using the request object's getSession() method, and then call its invalidate() method to end the session. Finally, we use the response object's sendRedirect() method to redirect the user to a login page or some other page in your application.
-
-Note that you can customize the redirect URL to go to any page that makes sense for your application.
-
-
-
-
-        
        
         <a href="" class="color "><i class="fa fa-book"></i> Report</a>
         <!-- logout -->
-       <form action="amin_dashboard.jsp">
-  			<input type="submit" value="Logout">
-	</form>
+       <a href="" class="color "><i class="fa fa-fw fa-power-off"></i> Logout</a>
     </div>
 
     <!-- page contents -->
@@ -572,7 +552,7 @@ Note that you can customize the redirect URL to go to any page that makes sense 
 						<td><%= select_query.getString("e_role") %></td>
 						<td><%= select_query.getString("date") %></td>
 						
-						<td><button class="btn btn-primary"><i class="fa fa-edit"></i></button> <button class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+						<td class="d-flex"><button class="btn btn-primary"><i class="fa fa-edit"></i></button> <button class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
 						
 					</tr>
 				<% 

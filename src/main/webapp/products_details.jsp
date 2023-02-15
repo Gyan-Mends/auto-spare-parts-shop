@@ -7,7 +7,12 @@
    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     String formattedDateTime = currentTime.format(formatter);
     						
-    %>
+   %>
+
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +72,7 @@
 		</div>
 	</div>
 
- 	 <!-- side navigation bar -->
+ 	 	 <!-- side navigation bar -->
 	 <!-- side navigation bar -->
     <div class="side_nav d-block">
         <a href="admin_dashboard.html" class="color"><i class="fa fa-paw"></i> Dashboard</a>
@@ -77,11 +82,49 @@
         <div class="dropdown">
         	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i> Products</a>
         	<div class="dropdown-contents pl-4">
-        		<a href="add_products.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add Products</a>
-        		<a href="products_details.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Products details</a>
+        		<a href="add_products.jsp" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add Products</a>
+        		<a href="products_details.jsp" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Products details</a>
+        	</div>
+        </div>
+        
+        <!-- employees -->
+        <!-- employees -->
+        <div class="dropdown">
+        	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i>Employees</a>
+        	<div class="dropdown-contents pl-4">
+        		<a href="add_employee.jsp" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add Employee</a>
+        		<a href="employee_details.jsp" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Employees Details</a>
+        	</div>
+        </div>
+        
+        <!-- point of sales -->
+       <!-- point of sales -->
+       <div class="dropdown">
+       		 <a href="" class="color dropdown-toggle"><i class="fa fa-eye"></i> Point of Sale</a>
+       		 <div class="dropdown-contents pl-4">
+       		 		 <a href="add_sales.jsp" class="color dropdown-list 	"><i class="fa fa-cart-plus"></i>Make Sale</a>
+       		 		  <a href="sales_details.jsp" class="color dropdown-list"><i class="fa fa-cart-plus"></i>Sales Details</a>
+       		 </div>
+       </div>
+       
+       <!-- ORDERS -->
+       <!-- ORDERS -->
+        
+        <div class="dropdown">
+        	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i>Orders</a>
+        	<div class="dropdown-contents pl-4">
+        		<a href="add_order.jsp" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add order</a>
+        		<a href="order_details.jsp" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Order Details</a>
+        		<a href="orders_pending.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Pending orders</a>
+
         	</div>
         </div>
        
+        
+        <!-- employees -->
+       <!-- employees -->
+        <a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i> Stores</a>
+        
        <!-- products categories -->
        <!-- products categories -->
        <div class="dropdown">
@@ -93,41 +136,11 @@
        		 		  <a href="" class="color dropdown-list"><i class="fa fa-cart-plus"></i> Kia</a>
        		 </div>
        </div>
+        
        
-       <!-- employees -->
-       <!-- employees -->
-        <a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i> Stores</a>
-        <div class="dropdown">
-        	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i>Employees</a>
-        	<div class="dropdown-contents pl-4">
-        		<a href="add_employees.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add Employee</a>
-        		<a href="employee_details.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Employees Details</a>
-        	</div>
-        </div>
-        
-         <!-- employees -->
-       <!-- employees -->
-        <a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i> Stores</a>
-        <div class="dropdown">
-        	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i>Orders</a>
-        	<div class="dropdown-contents pl-4">
-        		<a href="orders_create.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add order</a>
-        		<a href="order_completed.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Completed orders</a>
-        		<a href="orders_pending.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Pending orders</a>
-        	</div>
-        </div>
-        
-        <!-- payments -->
-       <!-- payments -->
-       <div class="dropdown">
-       		 <a href="" class="color dropdown-toggle"><i class="fa fa-eye"></i> Point of Sale</a>
-       		 <div class="dropdown-contents pl-4">
-       		 		 <a href="add_sales.html" class="color dropdown-list 	"><i class="fa fa-cart-plus"></i>Make Sale</a>
-       		 		  <a href="sales_details.html" class="color dropdown-list"><i class="fa fa-cart-plus"></i>Sales Details</a>
-       		 </div>
-       </div>
         <a href="" class="color "><i class="fa fa-book"></i> Report</a>
-        <a href="" class="color "><i class="fa fa-fw fa-power-off"></i> Logout</a>
+        <!-- logout -->
+       <a href="" class="color "><i class="fa fa-fw fa-power-off"></i> Logout</a>
     </div>
 
 	<div class="pageContent">
@@ -170,17 +183,17 @@
 					//database connection
         	//database connection
             Class.forName("org.postgresql.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "godblessme5011");
+            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
 			
             //Creating statement
             //Creating statement
             Statement statement = conn.createStatement();
-            Statement stmt = conn.createStatement();
             ResultSet select_query= statement.executeQuery("SELECT * FROM products");
             
            
             while(select_query.next()){
 				%>
+				 
 					<tr class="text-white">
 						<td><%= select_query.getString("id") %></td>
 						<td><%= select_query.getString("P_Name") %></td>
@@ -193,7 +206,9 @@
 						<td>
 							<%= formattedDateTime %>
 						</td>
-						<td class="-flex"><button class="btn btn-primary"><i class="fa fa-edit "></i></button><a href="product_details.jsp?id=<id>"><button class="btn btn-danger "><i class="fa fa-trash"></i></button></a></td>
+						<td class="d-flex">
+						<a href=""><button class="btn btn-primary"><i class="fa fa-edit "></i></button></a>
+						<a href="product_details.jsp?id=<%= select_query.getString("id") %>"><button class="btn btn-danger "><i class="fa fa-trash"></i></button></a></td>
 						
 					</tr>
 				<% 
