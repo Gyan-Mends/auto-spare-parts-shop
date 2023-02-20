@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Multiplication Example</title>
+   
+  </head>
+  <body>
+    <form>
+    	<label for="item-select">Item:</label>
+<select id="item-select">
+  <option value="apple" data-price="0.5">Apple</option>
+  <option value="banana" data-price="0.25">Banana</option>
+  <option value="orange" data-price="0.75">Orange</option>
+</select>
+<br>
+<label for="price-input">Price:</label>
+<input id="price-input" type="number" readonly>
+
+    </form>
+     
+      <script >
+    
+      const itemSelect = document.getElementById('item-select');
+      const priceInput = document.getElementById('price-input');
+
+      function updatePriceInput() {
+        const selectedItemOption = itemSelect.options[itemSelect.selectedIndex];
+        const selectedItemPrice = parseFloat(selectedItemOption.dataset.price);
+        priceInput.value = selectedItemPrice;
+      }
+
+      itemSelect.addEventListener('change', updatePriceInput);
+
+
+
+</script>
+  </body>
+</html>

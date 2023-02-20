@@ -1,0 +1,43 @@
+
+.side_nav{
+	position:fixed !important;
+    height: 100vh !important;
+    width: 230px !important;
+}
+
+.color{
+	color:white;
+}
+.color:hover{
+    color: white;
+    background-color:#0095FF;
+    border-radius:7px;
+}
+
+a{
+    display: block;
+    padding: 12px !important;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: 'Nunito' !important;
+}
+a:hover{
+    text-decoration: none !important;
+}
+
+// css style for the dropdown
+.dropdown{
+	position:relative;
+	display:inline-block;
+}
+.dropdown-contents{
+	display:none;
+}
+.dropdown:hover .dropdown-contents{
+	display:block;
+	transition:2s !important; 
+}
+.dropdown-list{
+	font-size:16px;
+}
+

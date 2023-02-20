@@ -11,110 +11,35 @@
 
 	<!-- ASSETS -->
 	<!-- ASSETS -->
+	<link rel="style sheet" href="css/fonts.css">
 	<link rel="stylesheet" href="css/customers.css">
 	<link rel="stylesheet" href="css/admin_dashboard.css">
 	<link rel="stylesheet" href="./assets/all.css">
 	<link rel="stylesheet" href="./assets/bootstrap.css">
-
+	<link rel="stylesheet" href="css/nav.css">
+	<script src="./assets/tailwind.js"></script>
 </head>
 
-<body>
-	<div class="topnav p-1">
-		<div class="d-flex">
-			<div class=logo>
-
-			</div>
-
-			<h5 class="text-white mt-2 ml-4">
-				SPARE PARTS
-			</h5>
-
-			<p class="text-white mt-2 ml-4">
-				<i class="fa fa-paw"></i>
-				DASHBOARD / OVERVIEW
-			</p>
-
-			<div class="profile">
-
-			</div>
-			<h6 class="text-white mt-2 ml-3">
-				Full Name
-			</h6>
-		</div>
-	</div>
-
-	 <!-- side navigation bar -->
-	 <!-- side navigation bar -->
-    <div class="side_nav d-block">
-        <a href="admin_dashboard.html" class="color"><i class="fa fa-paw"></i> Dashboard</a>
-        
-        <!-- products drop down -->
-        <!-- products drop down -->
-        <div class="dropdown">
-        	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i> Products</a>
-        	<div class="dropdown-contents pl-4">
-        		<a href="add_products.jsp" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add Products</a>
-        		<a href="products_details.jsp" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Products details</a>
-        	</div>
-        </div>
-        
-        <!-- employees -->
-        <!-- employees -->
-        <div class="dropdown">
-        	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i>Employees</a>
-        	<div class="dropdown-contents pl-4">
-        		<a href="add_employee.jsp" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add Employee</a>
-        		<a href="employee_details.jsp" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Employees Details</a>
-        	</div>
-        </div>
-        
-        <!-- point of sales -->
-       <!-- point of sales -->
-       <div class="dropdown">
-       		 <a href="" class="color dropdown-toggle"><i class="fa fa-eye"></i> Point of Sale</a>
-       		 <div class="dropdown-contents pl-4">
-       		 		 <a href="add_sales.jsp" class="color dropdown-list 	"><i class="fa fa-cart-plus"></i>Make Sale</a>
-       		 		  <a href="sales_details.jsp" class="color dropdown-list"><i class="fa fa-cart-plus"></i>Sales Details</a>
-       		 </div>
-       </div>
-       
-       <!-- ORDERS -->
-       <!-- ORDERS -->
-        
-        <div class="dropdown">
-        	<a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i>Orders</a>
-        	<div class="dropdown-contents pl-4">
-        		<a href="add_order.jsp" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Add order</a>
-        		<a href="order_details.jsp" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Order Details</a>
-        		<a href="orders_pending.html" class="color dropdown-list"><i class="fa fa-fw fa-briefcase"></i> Pending orders</a>
-
-        	</div>
-        </div>
-       
-        
-        <!-- employees -->
-       <!-- employees -->
-        <a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i> Stores</a>
-        
-       <!-- products categories -->
-       <!-- products categories -->
-       <div class="dropdown">
-       		 <a href="" class="color dropdown-toggle"><i class="fa fa-cart-plus"></i> Categories</a>
-       		 <div class="dropdown-contents pl-4">
-       		 		 <a href="" class="color dropdown-list 	"><i class="fa fa-cart-plus"></i> Toyota</a>
-       		 		  <a href="" class="color dropdown-list"><i class="fa fa-cart-plus"></i> Kia</a>
-       		 		  <a href="" class="color dropdown-list"><i class="fa fa-cart-plus"></i> Kia</a>
-       		 		  <a href="" class="color dropdown-list"><i class="fa fa-cart-plus"></i> Kia</a>
-       		 </div>
-       </div>
-        
-       
-        <a href="" class="color "><i class="fa fa-book"></i> Report</a>
-        <!-- logout -->
-       <a href="" class="color "><i class="fa fa-fw fa-power-off"></i> Logout</a>
-    </div>
-
+<body class="dark:bg-gray-800">
+	
+	<!-- including navigation bar -->
+	<!-- including navigation bar -->
+	<jsp:include page="nav.jsp"/>
+	
 	<div class="pageContent">
+		<div class="row">
+		
+		<div class="col-sm-8">
+			<div class="topnav pt-3 dark:bg-gray-600">
+              <h5 class="text-white">AUTO SHOP</h5>
+                    <div class="d-flex text-white" style="margin-top:-30px;">
+                        	<div class="admin-image ml-auto">
+                             	<img class="admin-image" alt="" src="images/IMG-20210215-WA0080~2.jpg">
+                             </div>
+                              <p class="ml-2 mt-2">Admin</p>
+                     </div>
+         </div>
+
 
 		<form>
 			<div class="container p-4">
@@ -127,40 +52,101 @@
 				<div class="row p-4">
 					<div class="col-sm-6">
 
-						<label class="text-white">Customers Name</label><br>
-						<input class="customers_input" type="text" name="Cname" required><br><br>
-
 						<label class="text-white">Spare part</label><br>
 						<input class="customers_input" type="text" name="spare-parts" required><br><br>
 						
-						<label class="text-white">Quantity</label><br>
-						<input class="customers_input" type="number" name="quantity" required><br><br>
+						<label class="text-white"  for="second-number-input">Price</label><br>
+						<input class="customers_input"  id="second-number-input" type="number" name="price"><br><br>
+<br><br>
 					</div>
 
 
 
 					<div class="col-sm-6">
 
-						<label class="text-white">Price</label><br>
-						<input class="customers_input" type="number" name="price" required><br><br>
+						<label class="text-white"  for="first-number-input">Quantity</label><br>
+						<input  class="customers_input" id="first-number-input" type="number" name="quantity"><br><br>
 
-						<label class="text-white">Total</label><br>
-						<input class="customers_input" type="number" name="total" required><br><br>
-
+						<label class="text-white" for="result-input">Total Amount</label><br>
+						<input class="customers_input" id="result-input" type="number" name="total" readonly><br><br>
 					</div>
+					
+					
+					
 
 					<div class="ml-auto mr-auto mt-4">
-						<input class="btn btn-primary submit" value="Make sales" type="submit" name="submit">
+						<input class="btn bg-blue-500 text-white submit" value="Make sales" type="submit" name="submit">
 					</div>
 				</div>
 			</div>
 		</form>
+			
+		</div>
+		
+		<div class="col-sm-4">
+			<div class="cart-container p-2 dark:bg-gray-600 flex flex-col justify-between">
+							<div class="flex-1">
+								<%
+					//databaseconnection 
+					//database connection 
+					Class.forName("org.postgresql.Driver"); 
+					Connection connn=DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres" , "root" );
+						Statement stmt =connn.createStatement();
+						 ResultSet select_query= stmt.executeQuery("SELECT * FROM check_out");            
+				            while(select_query.next()){
+								%>
+									<div class="cart-details mt-2 rounded ml-auto mr-auto p-2 text-center text-white bg-white">
+										<h5 class="text-dark text-lg"><%= select_query.getString("product_name") %></h5>
+										<form action="">
+											<div class="row mt-2">
+												<div class="col-sm-4"><input type="text" value="<%=  select_query.getString("product_price") %>"
+												 class="form-control" readonly></div>
+												<div class="col-sm-4"><input value="<%=  select_query.getString("product_price") %>" type="text" class="form-control" readonly></div>
+												<div class="col-sm-4"><input value="<%=  select_query.getString("product_total_amount") %>" type="text" class="form-control" readonly></div>
+												
+											</div>
+											
+											
+										</form>
+									</div>
+								<% 
+				            }
+				            %>
+							</div>
+				            
+				            <div class="h-22 flex justify-center ">
+				          		<input class="btn btn-primary bg-[#0095FF]" type="submit" value="Check Out">
+				            </div>
+						</div>
+
+					</div>
+	
+		</div>
+				 	
+				 	
+				 	
 	</div>
 
 
 
+<script >
+    
+      const firstNumberInput = document.getElementById('first-number-input');
+      const secondNumberInput = document.getElementById('second-number-input');
+      const resultInput = document.getElementById('result-input');
+
+      function updateResultInput() {
+        const firstNumberValue = parseFloat(firstNumberInput.value);
+        const secondNumberValue = parseFloat(secondNumberInput.value);
+        const resultValue = firstNumberValue * secondNumberValue;
+        resultInput.value = resultValue;
+      }
+
+      firstNumberInput.addEventListener('keyup', updateResultInput);
+      secondNumberInput.addEventListener('keyup', updateResultInput);
 
 
+</script>
 
 
 
@@ -184,7 +170,6 @@
 <%
 	//retrieving data from the input field
 	//retrieving data from the input field
-    String Cname = request.getParameter("Cname");
     String spare_parts = request.getParameter("spare-parts");
     String Quantity = request.getParameter("quantity");
     String Price = request.getParameter("price");
@@ -200,7 +185,7 @@
        if(request.getParameter("submit") != null){
     	   try {
            	
-       		//database connection
+       		//database connection__
            	//database connection
                Class.forName("org.postgresql.Driver");
                Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
@@ -208,20 +193,11 @@
                //creating sql statement
                //creating sql statement
                Statement statement = conn.createStatement();
-               int insert_query = statement.executeUpdate("INSERT INTO sales(Customer_Name, Spare_Part,Quantity,Price,Total,Date) VALUES ('"+Cname+"', '"+spare_parts+"', '"+Quantity+"', '"+Price+"', '"+Total+"', '"+formattedDateTime+"')");
-               if(insert_query>0) {
-                  %>
-                  		<script>
-   						alert("Sales has been made successfully");
-   					</script>
-                  <% 
-               } else {
-               	 %>
-               		<script>
-   						alert("Unable to make successfully");
-   					</script>
-               	<% 
-               }
+               int insert_query = statement.executeUpdate("INSERT INTO sales( Spare_Part,Quantity,Price,Total,Date) VALUES ( '"+spare_parts+"', '"+Quantity+"', '"+Price+"', '"+Total+"', '"+formattedDateTime+"')");
+               Statement statement2=conn.createStatement();
+       			int	insert_query2=statement2.executeUpdate("INSERT INTO check_out(Product_Name,Product_Price,Product_Quantity,Product_Total_Amount) VALUES (  '"+spare_parts+"' , '"+Quantity+"', '		"+Price+"','"+Total+"' )"); 
+
+               
                conn.close();
        	
        } catch (Exception e) {
