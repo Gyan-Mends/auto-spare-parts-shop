@@ -11,16 +11,17 @@
 
 	<!-- ASSETS -->
 	<!-- ASSETS -->
-	<link rel="style sheet" href="css/fonts.css">
+	 <link rel="stylesheet" href="./assets/fonts/fonts.css">
 	<link rel="stylesheet" href="css/customers.css">
 	<link rel="stylesheet" href="css/admin_dashboard.css">
 	<link rel="stylesheet" href="./assets/all.css">
+	 <link rel="stylesheet" href="./assets/fontawesome/css/all.css">
 	<link rel="stylesheet" href="./assets/bootstrap.css">
 	<link rel="stylesheet" href="css/nav.css">
 	<script src="./assets/tailwind.js"></script>
 </head>
 
-<body class="dark:bg-gray-800">
+<body style="font-family:poppins;" class="dark:bg-gray-800">
 	
 	<!-- including navigation bar -->
 	<!-- including navigation bar -->
@@ -41,7 +42,7 @@
          </div>
 
 
-		<form>
+		<form method="post" action="add_sales.jsp">
 			<div class="container p-4">
 
 				<div>
@@ -75,7 +76,7 @@
 					
 
 					<div class="ml-auto mr-auto mt-4">
-						<input class="btn bg-blue-500 text-white submit" value="Make sales" type="submit" name="submit">
+						<input class="btn bg-blue-500 text-white submit" value="Make sales" type="submit" name="insert">
 					</div>
 				</div>
 			</div>
@@ -84,8 +85,8 @@
 		</div>
 		
 		<div class="col-sm-4">
-			<div class="cart-container p-2 dark:bg-gray-600 flex flex-col justify-between">
-							<div class="flex-1">
+			<div class="cart-container p-2 dark:bg-gray-600 flex flex-col justify-between ">
+							<div class="flex-1 overflow-y-scroll">
 								<%
 					//databaseconnection 
 					//database connection 
@@ -95,18 +96,22 @@
 						 ResultSet select_query= stmt.executeQuery("SELECT * FROM check_out");            
 				            while(select_query.next()){
 								%>
-									<div class="cart-details mt-2 rounded ml-auto mr-auto p-2 text-center text-white bg-white">
+									<div class="cart-details mt-2 rounded ml-auto mr-auto text-center  text-white bg-white">
 										<h5 class="text-dark text-lg"><%= select_query.getString("product_name") %></h5>
-										<form action="">
-											<div class="row mt-2">
-												<div class="col-sm-4"><input type="text" value="<%=  select_query.getString("product_price") %>"
-												 class="form-control" readonly></div>
-												<div class="col-sm-4"><input value="<%=  select_query.getString("product_price") %>" type="text" class="form-control" readonly></div>
-												<div class="col-sm-4"><input value="<%=  select_query.getString("product_total_amount") %>" type="text" class="form-control" readonly></div>
-												
+										<form action="add_sales.jsp" method="post">
+											<div class="grid grid-cols-1 lg:grid-cols-3 mt-2 ">
+												<div class="text-left"><input  value="gh<%= select_query.getString("product_quantity") %>" type="text" class=" bg-gray-400 w-[55px] !text-center ml-2 h-8 rounded-sm" readonly></div>
+												<div class=""><input value=" <%= select_query.getString("product_price") %>" type="text" class=" w-[55px] h-8 rounded-sm bg-gray-400" readonly></div>
+												<div class=""><input value=" gh<%= select_query.getString("product_total_amount") %>" type="text" class=" w-[55px] h-8 rounded-sm bg-gray-400" readonly></div>
 											</div>
-											
-											
+											<div class="mt-3 grid grid-cols-1 lg:grid-cols-2">
+												<div>
+													<button   class="ml-2 rounded text-white h-7 w-7 bg-red-600"><i class="fa fa-trash"></i></button></td>												
+												</div>
+												<div>
+													<button  class="ml-2 rounded text-white h-7 w-7 bg-blue-600"><i class="fa fa-edit"></i></button></td>												
+												</div>	
+											</div>											
 										</form>
 									</div>
 								<% 
@@ -114,8 +119,25 @@
 				            %>
 							</div>
 				            
-				            <div class="h-22 flex justify-center ">
-				          		<input class="btn btn-primary bg-[#0095FF]" type="submit" value="Check Out">
+				            <div class="h-15 flex flex-col mt-4">
+				            	<form action="add_sales.jsp" method="post" >
+				            		<div class="">
+				            		<label class="text-white mr-2 mt-2">Total:</label>
+				        			<input class=" bg-white  w-[200px]  ml-2 h-8 rounded-sm" type="text" value="ghc<% 	
+                                     Statement stmt2=connn.createStatement(); 
+                                     ResultSet rs=stmt2.executeQuery("SELECT SUM(product_total_amount) AS total FROM check_out");
+                                     rs.next();
+                                     int total = rs.getInt("total");
+                                     out.print(total);
+                                      %>
+				        				 
+				        			" readonly>
+				            	</div >
+				            	<div class="flex items-center justify-center">
+				         			<input class="btn btn-primary bg-[#0095FF] h-10 w-40 mt-6" type="submit" name="check_out" value="Check Out">
+				            		
+				            	</div>
+				            	</form>
 				            </div>
 						</div>
 
@@ -180,15 +202,29 @@
     String formattedDateTime = currentTime.format(formatter);
 
     
-  
+    Class.forName("org.postgresql.Driver");
+    Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
+    
+    if(request.getParameter("check_out") != null){
+ 	   try{
+            Statement statements = conn.createStatement();
+            int insert_query = statements.executeUpdate("DELETE FROM check_out");
+           %>
+           		<script>
+					window.location.href="add_sales.jsp";				
+				</script>
+           <%
+ 	   }catch(Exception e){
+ 		   out.print(e);
+ 	   }
+    }
 
-       if(request.getParameter("submit") != null){
+       if(request.getParameter("insert") != null){
     	   try {
            	
        		//database connection__
            	//database connection
-               Class.forName("org.postgresql.Driver");
-               Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
+            
                
                //creating sql statement
                //creating sql statement
@@ -196,7 +232,12 @@
                int insert_query = statement.executeUpdate("INSERT INTO sales( Spare_Part,Quantity,Price,Total,Date) VALUES ( '"+spare_parts+"', '"+Quantity+"', '"+Price+"', '"+Total+"', '"+formattedDateTime+"')");
                Statement statement2=conn.createStatement();
        			int	insert_query2=statement2.executeUpdate("INSERT INTO check_out(Product_Name,Product_Price,Product_Quantity,Product_Total_Amount) VALUES (  '"+spare_parts+"' , '"+Quantity+"', '		"+Price+"','"+Total+"' )"); 
-
+				
+       			%>
+       				<script>
+						window.location.href="add_sales.jsp";				
+					</script>
+       			<% 
                
                conn.close();
        	
@@ -205,5 +246,7 @@
        }
   
        }
+       
+       
  
 %>

@@ -4,15 +4,16 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href="nav.css">
+<link rel="stylesheet" href="css/nav.css">
+<script src="./assets/tailwind.js"></script>
 <title>Inert title here</title>
 </head>
-<body>
+<body >
 	<!-- side navigation bar -->
     <!-- side navigation bar -->
                         <div class="side_nav  pt-4 dark:bg-gray-600">
 
-                            <a href="admin_dashboard.jsp" class="color active"><i class="fa fa-paw"></i> Dashboard</a>
+                            <a href="admin_dashboard.jsp" class="color"><i class="fa fa-paw"></i> Dashboard</a>
 
                             <!-- products drop down -->
                             <!-- products drop down -->
@@ -62,16 +63,13 @@
                                             class="fa fa-fw fa-briefcase"></i> Add order</a>
                                     <a href="order_details.jsp" class="color dropdown-list"><i
                                             class="fa fa-fw fa-briefcase"></i> Order Details</a>
-                                    <a href="orders_pending.html" class="color dropdown-list"><i
-                                            class="fa fa-fw fa-briefcase"></i> Pending orders</a>
-
                                 </div>
                             </div>
 
 
                             <!-- employees -->
                             <!-- employees -->
-                            <a href="" class="color dropdown-toggle"><i class="fa fa-fw fa-briefcase"></i> Stores</a>
+                            <a href="store.jsp" class="color "><i class="fa fa-fw fa-briefcase"></i> Stores</a>
 
                             <!-- products categories -->
                             <!-- products categories -->
@@ -88,7 +86,7 @@
 
                             <a href="" class="color "><i class="fa fa-book"></i> Report</a>
                             <!-- logout -->
-                            <a href="" class="color "><i class="fa fa-fw fa-power-off"></i> Logout</a>
+                            <a href="index.jsp" class="color "><i class="fa fa-fw fa-power-off"></i> Logout</a>
                         </div>
 	
 </body>

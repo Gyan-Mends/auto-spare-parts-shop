@@ -50,9 +50,7 @@
 	//Retrieving data from the form
 	//Retrieving data from the form
     String Email = request.getParameter("email");
-    	session.setAttribute("Email", Email);
-    	 String Password = request.getParameter("password");
-    	session.setAttribute("Password", Password);
+   	String Password = request.getParameter("password");
     	
     
     if(request.getParameter("submit") != null){

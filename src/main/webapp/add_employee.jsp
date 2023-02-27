@@ -16,10 +16,14 @@
 	<link rel="stylesheet" href="css/admin_dashboard.css">
 	<link rel="stylesheet" href="./assets/all.css">
 	<link rel="stylesheet" href="./assets/bootstrap.css">
+	 <link rel="stylesheet" href="./assets/fonts/fonts.css">
+	 <script src="./assets/tailwind.js"></script>
+	 
+	
 
 </head>
 
-<body>
+<body style="font-family:poppins;" class="dark:bg-gray-800">
 	
 	<!-- including navigation bar -->
 		<!-- including navigation bar -->
@@ -29,9 +33,9 @@
 		
 	  	<div class="pageContent">
 	  	
-	  	<div class="topnav pt-3 ">
+	  	<div class="topnav pt-3 dark:bg-gray-600">
              <h5 class="text-white">AUTO SHOP</h5>
-                  <div class="d-flex text-white" style="margin-top:-43px;">
+                  <div class="d-flex text-white" style="margin-top:-30px;">
                         <div class="admin-image ml-auto">
                               <img class="admin-image" alt="" src="images/IMG-20210215-WA0080~2.jpg">
                          </div>
@@ -59,6 +63,7 @@
 						
 						<label class="text-white">Gender</label><br>
 						<select class="product_input" name="Egender">
+							<option></option>
 							<option>Male</option>
 							<option>Female</option>
 						</select><br><br>
@@ -79,7 +84,7 @@
 					</div>
 
 					<div class="ml-auto mr-auto mt-4">
-						<input class="btn btn-primary submit" value="Add Customer" type="submit" name="submit">
+						<input class="btn btn-primary submit bg-blue-600" value="Add Customer" type="submit" name="submit">
 					</div>
 				</div>
 			</div>
@@ -135,11 +140,7 @@
                Statement statement = conn.createStatement();
                int insert_query = statement.executeUpdate("INSERT INTO employees(E_F_Name,E_L_Name, E_Gender,E_Phone,E_Email,E_Role,Date) VALUES ('"+EFname+"', '"+ELname+"', '"+Egender+"', '"+Ephone+"', '"+Eemail+"', '"+Erole+"', '"+ formattedDateTime +"')");
                if(insert_query>0) {
-                  %>
-                  		<script>
-   						alert("Product has been added successfully");
-   					</script>
-                  <% 
+                  
                } else {
                	 %>
                		<script>

@@ -13,7 +13,7 @@
 			background-color: #0095FF !important;
 		}
 		tr:nth-child(even){
-			background-color:#202020;
+			background-color:#404040;
 		}
 		
 	</style>
@@ -32,10 +32,14 @@
 	<link rel="stylesheet" href="./assets/all.css">
 	<link rel="stylesheet" href="./assets/bootstrap.css">
 	<link rel="stylesheet" href="css/nav.css">
+	<script src="./assets/tailwind.js"></script>
+	<link rel="stylesheet" href="./assets/fonts/fonts.css">
+	
+	
 
 </head>
 
-<body>
+<body style="font-family:poppins;" class="dark:bg-gray-800">
 	
 	<!-- including navigation bar -->
 	<!-- including navigation bar -->
@@ -43,9 +47,9 @@
 		
 		<div class="pageContent">
 		
-		<div class="topnav pt-3 ">
+		<div class="topnav pt-3 dark:bg-gray-600">
              <h5 class="text-white">AUTO SHOP</h5>
-                  <div class="d-flex text-white" style="margin-top:-43px;">
+                  <div class="d-flex text-white" style="margin-top:-30px;">
                         <div class="admin-image ml-auto">
                               <img class="admin-image" alt="" src="images/IMG-20210215-WA0080~2.jpg">
                          </div>
@@ -107,8 +111,8 @@
 						<td><%= select_query.getString("date") %></td>
 						
 						<td class="d-flex">
-						<button style="background-color:#0095FF; border:1px solid #0095FF;" class="rounded text-white"><i class="fa fa-edit "></i></button>
-						<button style="background-color:red; border:1px solid red;" class="ml-2 rounded text-white"><i class="fa fa-trash"></i></button></td>
+						<button style="background-color:#0095FF; border:1px solid #0095FF;" class="rounded text-white h-7 w-7"><i class="fa fa-edit "></i></button>
+						<button style="background-color:red; border:1px solid red;" class="ml-2 rounded text-white h-7 w-7"><i class="fa fa-trash"></i></button></td>
 					</tr>
 				<% 
             }

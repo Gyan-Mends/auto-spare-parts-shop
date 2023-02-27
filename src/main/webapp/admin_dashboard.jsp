@@ -26,6 +26,7 @@
                         <link rel="stylesheet" href="css/nav.css">
                         <link rel="stylesheet" href="css/admin_dashboard.css">
                         <link rel="stylesheet" href="./assets/all.css">
+                        <link rel="stylesheet" href="./assets/fontawesome/css/all.css">
                         <link rel="stylesheet" href="./assets/bootstrap.css">
                         <script src="./assets/tailwind.js"></script>
 
@@ -38,7 +39,7 @@
 						
 		
                         <!-- page contents -->
-                        <div class="pageContent">
+                      <div class="pageContent">
                             <div class="topnav pt-3 dark:bg-gray-600">
                                 <h5 class="text-white">AUTO SHOP</h5>
                                 
@@ -88,7 +89,7 @@
 
                                                 <div class="col-sm-6">
                                                     <div class="arrow ">
-                                                        <a href="products_detail.jsp">
+                                                        <a href="products_details.jsp">
                                                             <i class="fa fa-arrow-right text-blue-600"></i>
                                                         </a>
                                                     </div>
@@ -289,8 +290,7 @@
                                         <div class=" total_coupons">
                                             <div class="row ">
                                                 <div class="col-sm-6 red p">
-                                                    <i class="fa fa-hand-holding-usd fa-4x ml-3 mt-2"></i>
-                                                </div>
+												<i class="fa-solid fa-cedi-sign fa-4x !ml-2"></i>                                                </div>
 
                                                 <div class="col-sm-6">
                                                     <div class="red">
